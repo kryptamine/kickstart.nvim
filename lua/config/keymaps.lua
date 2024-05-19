@@ -1,5 +1,4 @@
 local keymap = vim.keymap
-local opts = { noremap = true, silent = true }
 
 keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
@@ -7,7 +6,6 @@ keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
 keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
 keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
-keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
@@ -40,11 +38,18 @@ keymap.set('n', 'L', '$')
 keymap.set('i', 'jj', '<Esc>')
 
 -- Split window
-keymap.set('n', 'ss', ':split<Return>', opts)
-keymap.set('n', 'sv', ':vsplit<Return>', opts)
+keymap.set('n', 'ss', ':split<Return>')
+keymap.set('n', 'sv', ':vsplit<Return>')
+
+-- Split terminal windows
+keymap.set('n', 'st', ':vsplit | term<Return>')
 
 -- save file
-keymap.set({ 'i', 'x', 'n', 's' }, '<C-s>', '<cmd>w<cr><esc>', { desc = 'Save File' })
+keymap.set({ 'i', 'x', 'n', 's' }, '<C-s>', '<cmd>wa<cr><esc>', { desc = 'Save File' })
 
 -- quit
-keymap.set('n', '<leader>q', '<cmd>qa<CR>', { desc = 'Quit All' })
+keymap.set('n', '<leader>q', '<cmd>q<CR>')
+keymap.set('n', '<leader>Q', '<cmd>qa<CR>')
+
+-- LSP
+keymap.set('n', '<leader>b', '<cmd>lua vim.lsp.buf.hover()<CR>', { desc = 'Display variable type' })

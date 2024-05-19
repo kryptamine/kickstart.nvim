@@ -7,12 +7,29 @@ return {
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-path',
+      {
+        "zbirenbaum/copilot-cmp",
+        dependencies = "zbirenbaum/copilot.lua",
+        opts = {},
+        config = function(_, opts)
+          local copilot_cmp = require("copilot_cmp")
+          copilot_cmp.setup(opts)
+          -- attach cmp source whenever copilot attaches
+          -- fixes lazy-loading issues with the copilot cmp source
+          local on_attach = function(client)
+            if client.name == "copilot" then
+              copilot_cmp._on_insert_enter({})
+            end
+          end
+          require("copilot").setup({ on_attach = on_attach })
+        end,
+      },
     },
 
     opts = function()
       vim.api.nvim_set_hl(0, 'CmpGhostText', { link = 'Comment', default = true })
       local cmp = require 'cmp'
-      local defaults = require 'cmp.config.default'()
+      local defaults = require 'cmp.config.default' ()
       return {
         auto_brackets = {}, -- configure any filetype to auto add brackets
         completion = {
@@ -51,6 +68,12 @@ return {
     end,
     ---@param opts cmp.ConfigSchema | {auto_brackets?: string[]}
     config = function(_, opts)
+      table.insert(opts.sources, 1, {
+        name = "copilot",
+        group_index = 1,
+        priority = 100,
+      })
+
       for _, source in ipairs(opts.sources) do
         source.group_index = source.group_index or 1
       end

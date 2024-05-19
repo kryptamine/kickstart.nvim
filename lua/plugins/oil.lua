@@ -6,16 +6,16 @@ return {
       require('oil').setup {
         columns = { 'icon' },
         keymaps = {
-          ['<C-h>'] = false,
-          ['<M-h>'] = 'actions.select_split',
           ['<Esc><Esc>'] = 'actions.close',
+          ["<C-v>"] = "actions.select_vsplit",
+          ["<C-s>"] = false,
         },
         view_options = {
           show_hidden = true,
         },
         float = {
           -- Padding around the floating window
-          padding = 30,
+          padding = 10,
           max_width = 0,
           max_height = 0,
           border = 'rounded',
