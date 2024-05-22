@@ -40,6 +40,7 @@ keymap.set('i', 'jj', '<Esc>')
 -- Split window
 keymap.set('n', 'ss', ':split<Return>')
 keymap.set('n', 'sv', ':vsplit<Return>')
+keymap.set('n', '<leader>v', ':vsplit | lua vim.lsp.buf.definition()<CR>')
 
 -- Split terminal windows
 keymap.set('n', 'st', ':vsplit | term<Return>')

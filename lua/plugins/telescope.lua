@@ -17,13 +17,63 @@ return {
     },
     config = function()
       local telescope = require 'telescope'
+
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = "TelescopeResults",
+        callback = function(ctx)
+          vim.api.nvim_buf_call(ctx.buf, function()
+            vim.fn.matchadd("TelescopeParent", "\t\t.*$")
+            vim.api.nvim_set_hl(0, "TelescopeParent", { link = "Comment" })
+          end)
+        end,
+      })
+
+      -- Function to display only the last 5 path segments
+      local function filenameFirst(_, path)
+        local segments = {}
+        for segment in string.gmatch(path, "[^/]+") do
+          table.insert(segments, segment)
+        end
+
+        local tail = segments[#segments]
+        local parent_segments = {}
+        for i = math.max(1, #segments - 5), #segments - 1 do
+          table.insert(parent_segments, segments[i])
+        end
+
+        local parent = table.concat(parent_segments, "/")
+        if parent == "" then return tail end
+        return string.format("%s\t\t%s", tail, parent)
+      end
+
       telescope.setup {
         pickers = {
           oldfiles = {
             cwd_only = true,
-          }
+          },
+          find_files = {
+            path_display = filenameFirst,
+          },
+          live_grep = {
+            additional_args = { '--fixed-strings' }
+          },
+          lsp_references = {
+            show_line = false,
+            -- Specific options for lsp_references picker
+            path_display = filenameFirst,
+          },
         },
         defaults = {
+          layout_strategy = 'vertical',
+          layout_config = {
+            horizontal = {
+              preview_width = 0.5,
+            },
+            vertical = {
+              prompt_position = "top",
+              mirror = true,
+            },
+          },
           file_ignore_patterns = {
             'node_modules',
             '.git/',

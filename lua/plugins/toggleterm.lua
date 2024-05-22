@@ -15,7 +15,7 @@ return {
             return term.name
           end,
         },
-        open_mapping = [[\]],
+        open_mapping = [[T]],
         on_open = function()
           -- Disable troll-stopper highlight
           vim.cmd([[highlight TrollStopper ctermbg = none guibg = none]])
