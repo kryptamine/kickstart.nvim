@@ -68,6 +68,7 @@ return {
           layout_config = {
             horizontal = {
               preview_width = 0.5,
+              preview_cutoff = 100,
             },
             vertical = {
               prompt_position = "top",
@@ -75,8 +76,12 @@ return {
             },
           },
           file_ignore_patterns = {
+            'codegen.ts',
+            '.git',
+            'lazy-lock.json',
+            '*-lock.yaml',
             'node_modules',
-            '.git/',
+            '%.lock',
           },
         },
         extensions = {
