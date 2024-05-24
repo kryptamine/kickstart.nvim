@@ -5,36 +5,14 @@ return {
   dependencies = {
     -- Adds LSP completion capabilities
     'hrsh7th/cmp-nvim-lsp',
-
     'hrsh7th/cmp-path',
     'hrsh7th/cmp-buffer',
     'onsails/lspkind.nvim',
-    {
-      'zbirenbaum/copilot-cmp',
-      dependencies = 'zbirenbaum/copilot.lua',
-      opts = {},
-      config = function(_, opts)
-        local copilot_cmp = require 'copilot_cmp'
-        copilot_cmp.setup(opts)
-        -- attach cmp source whenever copilot attaches
-        -- fixes lazy-loading issues with the copilot cmp source
-        local on_attach = function(client)
-          if client.name == 'copilot' then
-            copilot_cmp._on_insert_enter {}
-          end
-        end
-        require('copilot').setup { on_attach = on_attach }
-      end,
-    },
   },
   config = function()
     local cmp = require 'cmp'
     local lspkind = require 'lspkind'
-    lspkind.init {
-      symbol_map = {
-        Copilot = '',
-      },
-    }
+
     cmp.setup {
       completion = {
         completeopt = 'menu,menuone,noinsert',
@@ -43,6 +21,7 @@ return {
         format = lspkind.cmp_format {
           with_text = true,
           menu = {
+            copilot = '[copilot]',
             buffer = '[buf]',
             nvim_lsp = '[LSP]',
             nvim_lua = '[api]',
@@ -50,7 +29,6 @@ return {
             gh_issues = '[issues]',
             tn = '[TabNine]',
             eruby = '[erb]',
-            copilot = '[copilot]',
           },
         },
       },
@@ -81,13 +59,10 @@ return {
         end, { 'i', 's' }),
       },
       sources = cmp.config.sources {
-        { name = 'nvim_lsp' },
         { name = 'copilot' },
-        {
-
-          { name = 'path' },
-          { name = 'buffer' },
-        },
+        { name = 'nvim_lsp' },
+        { name = 'buffer' },
+        { name = 'path' },
       },
       sorting = {
         comparators = {
