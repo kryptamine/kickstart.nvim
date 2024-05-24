@@ -1,15 +1,69 @@
+local icons = require 'config.icons'
 return {
   {
     'lewis6991/gitsigns.nvim',
     opts = {
       signs = {
-        add = { text = '▎' },
-        change = { text = '▎' },
-        delete = { text = '' },
-        topdelete = { text = '' },
-        changedelete = { text = '▎' },
-        untracked = { text = '▎' },
+        add = {
+          hl = 'GitSignsAdd',
+          text = icons.ui.BoldLineLeft,
+          numhl = 'GitSignsAddNr',
+          linehl = 'GitSignsAddLn',
+        },
+        change = {
+          hl = 'GitSignsChange',
+          text = icons.ui.BoldLineLeft,
+          numhl = 'GitSignsChangeNr',
+          linehl = 'GitSignsChangeLn',
+        },
+        delete = {
+          hl = 'GitSignsDelete',
+          text = icons.ui.TriangleShortArrowRight,
+          numhl = 'GitSignsDeleteNr',
+          linehl = 'GitSignsDeleteLn',
+        },
+        topdelete = {
+          hl = 'GitSignsDelete',
+          text = icons.ui.TriangleShortArrowRight,
+          numhl = 'GitSignsDeleteNr',
+          linehl = 'GitSignsDeleteLn',
+        },
+        changedelete = {
+          hl = 'GitSignsChange',
+          text = icons.ui.BoldLineLeft,
+          numhl = 'GitSignsChangeNr',
+          linehl = 'GitSignsChangeLn',
+        },
       },
+      signcolumn = true,
+      numhl = false,
+      linehl = false,
+      word_diff = false,
+      watch_gitdir = {
+        interval = 1000,
+        follow_files = true,
+      },
+      attach_to_untracked = true,
+      current_line_blame = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
+      current_line_blame_opts = {
+        virt_text = true,
+        virt_text_pos = 'eol', -- 'eol' | 'overlay' | 'right_align'
+        delay = 1000,
+        ignore_whitespace = false,
+      },
+      current_line_blame_formatter = '<author>, <author_time:%Y-%m-%d> - <summary>',
+      sign_priority = 6,
+      status_formatter = nil,
+      update_debounce = 200,
+      max_file_length = 40000,
+      preview_config = {
+        border = 'rounded',
+        style = 'minimal',
+        relative = 'cursor',
+        row = 0,
+        col = 1,
+      },
+      yadm = { enable = false },
       on_attach = function(buffer)
         local gs = package.loaded.gitsigns
 
@@ -20,14 +74,12 @@ return {
       -- stylua: ignore start
       map("n", "]h", function() gs.nav_hunk("next") end, "Next Hunk")
       map("n", "[h", function() gs.nav_hunk("prev") end, "Prev Hunk")
-      map("n", "]H", function() gs.nav_hunk("last") end, "Last Hunk")
-      map("n", "[H", function() gs.nav_hunk("first") end, "First Hunk")
       map({ "n", "v" }, "<leader>hs", ":Gitsigns stage_hunk<CR>", "Stage Hunk")
       map({ "n", "v" }, "<leader>hr", ":Gitsigns reset_hunk<CR>", "Reset Hunk")
       map("n", "<leader>hS", gs.stage_buffer, "Stage Buffer")
       map("n", "<leader>hu", gs.undo_stage_hunk, "Undo Stage Hunk")
       map("n", "<leader>hR", gs.reset_buffer, "Reset Buffer")
-      map("n", "<leader>hp", gs.preview_hunk_inline, "Preview Hunk Inline")
+      map("n", "<leader>hp", gs.preview_hunk, "Preview Hunk Inline")
       map("n", "<leader>hb", function() gs.blame_line({ full = true }) end, "Blame Line")
       map("n", "<leader>hd", gs.diffthis, "Diff This")
       map("n", "<leader>hD", function() gs.diffthis("~") end, "Diff This ~")

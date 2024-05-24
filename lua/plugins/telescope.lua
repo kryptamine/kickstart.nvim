@@ -13,17 +13,19 @@ return {
       },
       { 'nvim-telescope/telescope-ui-select.nvim' },
       -- Useful for getting pretty icons, but requires a Nerd Font.
-      { 'nvim-tree/nvim-web-devicons',            enabled = vim.g.have_nerd_font },
+      { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
     },
     config = function()
       local telescope = require 'telescope'
+      local icons = require 'config.icons'
+      local actions = require 'telescope.actions'
 
-      vim.api.nvim_create_autocmd("FileType", {
-        pattern = "TelescopeResults",
+      vim.api.nvim_create_autocmd('FileType', {
+        pattern = 'TelescopeResults',
         callback = function(ctx)
           vim.api.nvim_buf_call(ctx.buf, function()
-            vim.fn.matchadd("TelescopeParent", "\t\t.*$")
-            vim.api.nvim_set_hl(0, "TelescopeParent", { link = "Comment" })
+            vim.fn.matchadd('TelescopeParent', '\t\t.*$')
+            vim.api.nvim_set_hl(0, 'TelescopeParent', { link = 'Comment' })
           end)
         end,
       })
@@ -31,7 +33,7 @@ return {
       -- Function to display only the last 5 path segments
       local function filenameFirst(_, path)
         local segments = {}
-        for segment in string.gmatch(path, "[^/]+") do
+        for segment in string.gmatch(path, '[^/]+') do
           table.insert(segments, segment)
         end
 
@@ -41,9 +43,11 @@ return {
           table.insert(parent_segments, segments[i])
         end
 
-        local parent = table.concat(parent_segments, "/")
-        if parent == "" then return tail end
-        return string.format("%s\t\t%s", tail, parent)
+        local parent = table.concat(parent_segments, '/')
+        if parent == '' then
+          return tail
+        end
+        return string.format('%s\t\t%s', tail, parent)
       end
 
       telescope.setup {
@@ -53,9 +57,36 @@ return {
           },
           find_files = {
             path_display = filenameFirst,
+            previewer = false,
+            -- path_display = formattedName,
+            layout_config = {
+              height = 0.4,
+              prompt_position = 'top',
+              preview_cutoff = 120,
+            },
+          },
+          buffers = {
+            path_display = filenameFirst,
+            mappings = {
+              i = {
+                ['<c-d>'] = actions.delete_buffer,
+              },
+              n = {
+                ['<c-d>'] = actions.delete_buffer,
+              },
+            },
+            previewer = false,
+            initial_mode = 'normal',
+            -- theme = "dropdown",
+            layout_config = {
+              height = 0.4,
+              width = 0.6,
+              prompt_position = 'top',
+              preview_cutoff = 120,
+            },
           },
           live_grep = {
-            additional_args = { '--fixed-strings' }
+            additional_args = { '--fixed-strings' },
           },
           lsp_references = {
             show_line = false,
@@ -64,6 +95,34 @@ return {
           },
         },
         defaults = {
+          preview = {
+            mime_hook = function(filepath, bufnr, opts)
+              local is_image = function(filepath)
+                local image_extensions = { 'png', 'jpg' } -- Supported image formats
+                local split_path = vim.split(filepath:lower(), '.', { plain = true })
+                local extension = split_path[#split_path]
+                return vim.tbl_contains(image_extensions, extension)
+              end
+              if is_image(filepath) then
+                local term = vim.api.nvim_open_term(bufnr, {})
+                local function send_output(_, data, _)
+                  for _, d in ipairs(data) do
+                    vim.api.nvim_chan_send(term, d .. '\r\n')
+                  end
+                end
+                vim.fn.jobstart({
+                  'catimg',
+                  filepath, -- Terminal image viewer command
+                }, { on_stdout = send_output, stdout_buffered = true, pty = true })
+              else
+                require('telescope.previewers.utils').set_preview_message(bufnr, opts.winid, 'Binary cannot be previewed')
+              end
+            end,
+          },
+          prompt_prefix = ' ' .. icons.ui.Telescope .. ' ',
+          selection_caret = icons.ui.BoldArrowRight .. ' ',
+          color_devicons = true,
+          set_env = { ['COLORTERM'] = 'truecolor' }, -- default = nil,
           layout_strategy = 'vertical',
           layout_config = {
             horizontal = {
@@ -71,7 +130,7 @@ return {
               preview_cutoff = 100,
             },
             vertical = {
-              prompt_position = "top",
+              prompt_position = 'top',
               mirror = true,
             },
           },
@@ -86,13 +145,25 @@ return {
         },
         extensions = {
           ['ui-select'] = {
-            require('telescope.themes').get_dropdown(),
+            require('telescope.themes').get_dropdown {
+              previewer = false,
+              initial_mode = 'normal',
+              sorting_strategy = 'ascending',
+              layout_strategy = 'horizontal',
+              layout_config = {
+                horizontal = {
+                  width = 0.5,
+                  height = 0.4,
+                  preview_width = 0.6,
+                },
+              },
+            },
           },
           fzf = {
-            fuzzy = true,                   -- false will only do exact matching
+            fuzzy = true, -- false will only do exact matching
             override_generic_sorter = true, -- override the generic sorter
-            override_file_sorter = true,    -- override the file sorter
-            case_mode = 'smart_case',       -- or "ignore_case" or "respect_case"
+            override_file_sorter = true, -- override the file sorter
+            case_mode = 'smart_case', -- or "ignore_case" or "respect_case"
           },
         },
       }
@@ -106,7 +177,7 @@ return {
       vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
       vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
       vim.keymap.set('n', '<leader>sb', builtin.buffers, { desc = '[S]earch [B]uffers' })
-      vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
+      vim.keymap.set('n', '<leader>ss', builtin.lsp_document_symbols, { desc = '[S]earch [S]ymbols' })
       vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
       vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
       vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
