@@ -97,9 +97,9 @@ return {
         defaults = {
           preview = {
             mime_hook = function(filepath, bufnr, opts)
-              local is_image = function(filepath)
+              local is_image = function(fp)
                 local image_extensions = { 'png', 'jpg' } -- Supported image formats
-                local split_path = vim.split(filepath:lower(), '.', { plain = true })
+                local split_path = vim.split(fp:lower(), '.', { plain = true })
                 local extension = split_path[#split_path]
                 return vim.tbl_contains(image_extensions, extension)
               end
