@@ -19,6 +19,13 @@ return {
 
       vim.o.laststatus = vim.g.lualine_laststatus
 
+      -- Function to get the root directory name
+      local function get_root_dir()
+        local cwd = vim.fn.getcwd()
+        local project_name = vim.fn.fnamemodify(cwd, ':t')
+        return project_name
+      end
+
       return {
         options = {
           globalstatus = true,
@@ -29,8 +36,8 @@ return {
           lualine_b = { 'branch', 'diff', 'diagnostics' },
           lualine_c = {
             {
-              'filename',
-              path = 1,
+              get_root_dir,
+              icon = require('config.icons').ui.Project,
             },
           },
           lualine_x = { 'encoding', 'fileformat', 'filetype' },
