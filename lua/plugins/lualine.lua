@@ -36,8 +36,10 @@ return {
           lualine_b = { 'branch', 'diff', 'diagnostics' },
           lualine_c = {
             {
-              get_root_dir,
-              icon = require('config.icons').ui.Project,
+              function()
+                local icon = require('config.icons').ui.Project
+                return icon .. ' ' .. get_root_dir()
+              end,
             },
           },
           lualine_x = { 'encoding', 'fileformat', 'filetype' },
