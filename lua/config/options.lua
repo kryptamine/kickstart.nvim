@@ -1,6 +1,8 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+-- mostly just for cmp
+vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 vim.scriptencoding = 'utf-8'
 vim.opt.encoding = 'utf-8'
 vim.opt.fileencoding = 'utf-8'
@@ -21,7 +23,8 @@ vim.opt.backspace = { 'start', 'eol', 'indent' }
 vim.opt.wildignore:append { '*/node_modules/*' }
 vim.opt.splitkeep = 'cursor'
 vim.opt.termguicolors = true
-
+-- Don't show the ruler
+vim.opt.ruler = false
 -- Add asterisks in block comments
 vim.opt.formatoptions:append { 'r' }
 
@@ -89,3 +92,7 @@ vim.opt.scrolloff = 10
 
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
+
+-- Disable some providers
+vim.g.loaded_ruby_provider = 0
+vim.g.loaded_perl_provider = 0

@@ -17,14 +17,6 @@ local options = {
 
   formatters_by_ft = {
     lua = { 'stylua' },
-    python = { 'isort', 'black' },
-    gdscript = { 'gdformat' },
-    go = { 'goimports', 'gofumpt' },
-    sh = { 'shfmt' },
-    zsh = { 'shfmt' },
-    heex = { 'mix' },
-    elixir = { 'mix' },
-    eelixir = { 'mix' },
   },
 
   formatters = {},

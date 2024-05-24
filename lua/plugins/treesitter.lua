@@ -27,7 +27,6 @@ return {
           'luap',
           'markdown',
           'markdown_inline',
-          'python',
           'query',
           'regex',
           'tsx',
@@ -35,10 +34,6 @@ return {
           'vim',
           'vimdoc',
           'yaml',
-          'go',
-          'gomod',
-          'gowork',
-          'gosum',
           'terraform',
         },
         incremental_selection = {

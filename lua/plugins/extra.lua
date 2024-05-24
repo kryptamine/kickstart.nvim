@@ -16,6 +16,7 @@ return {
       }
     end,
   },
+  -- Smooth scrolling neovim plugin written in lua
   {
     'karb94/neoscroll.nvim',
     config = function()
@@ -24,6 +25,15 @@ return {
         easing_function = 'sine',
         hide_cursor = true,
         cursor_scrolls_alone = true,
+      }
+    end,
+  },
+  -- Neovim setup for init.lua and plugin development with full signature help, docs and completion for the nvim lua API
+  {
+    'folke/neodev.nvim',
+    config = function()
+      require('neodev').setup {
+        library = { plugins = { 'neotest' }, types = true },
       }
     end,
   },

@@ -38,8 +38,8 @@ keymap.set('n', 'L', '$')
 keymap.set('i', 'jj', '<Esc>')
 
 -- Split window
-keymap.set('n', 'ss', ':split<Return>')
-keymap.set('n', 'sv', ':vsplit<Return>')
+keymap.set('n', 'ss', ':split<Return>', { desc = 'Split botton' })
+keymap.set('n', 'sv', ':vsplit<Return>', { desc = 'Split vertically' })
 keymap.set('n', '<leader>v', ':vsplit | lua vim.lsp.buf.definition()<CR>')
 
 -- Split terminal windows
