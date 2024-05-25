@@ -11,9 +11,9 @@ return {
         -- This is only run then, not every time Neovim starts up.
         build = 'make',
       },
-      { 'nvim-telescope/telescope-ui-select.nvim' },
+      'nvim-telescope/telescope-ui-select.nvim',
       -- Useful for getting pretty icons, but requires a Nerd Font.
-      { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
+      'nvim-tree/nvim-web-devicons',
     },
     config = function()
       local telescope = require 'telescope'
@@ -58,11 +58,9 @@ return {
           find_files = {
             path_display = filenameFirst,
             previewer = false,
-            -- path_display = formattedName,
             layout_config = {
-              height = 0.4,
+              width = 0.4,
               prompt_position = 'top',
-              preview_cutoff = 120,
             },
           },
           buffers = {
@@ -77,24 +75,30 @@ return {
             },
             previewer = false,
             initial_mode = 'normal',
-            -- theme = "dropdown",
             layout_config = {
               height = 0.4,
-              width = 0.6,
+              width = 0.4,
               prompt_position = 'top',
-              preview_cutoff = 120,
             },
           },
           live_grep = {
+            path_display = filenameFirst,
             additional_args = { '--fixed-strings' },
           },
           lsp_references = {
             show_line = false,
-            -- Specific options for lsp_references picker
             path_display = filenameFirst,
+          },
+          treesitter = {
+            show_line = false,
+            previewer = true,
+          },
+          colorscheme = {
+            enable_preview = true,
           },
         },
         defaults = {
+          previewer = false,
           preview = {
             mime_hook = function(filepath, bufnr, opts)
               local is_image = function(fp)
@@ -123,16 +127,9 @@ return {
           selection_caret = icons.ui.BoldArrowRight .. ' ',
           color_devicons = true,
           set_env = { ['COLORTERM'] = 'truecolor' }, -- default = nil,
-          layout_strategy = 'vertical',
           layout_config = {
-            horizontal = {
-              preview_width = 0.5,
-              preview_cutoff = 100,
-            },
-            vertical = {
-              prompt_position = 'top',
-              mirror = true,
-            },
+            prompt_position = 'top',
+            preview_cutoff = 120,
           },
           file_ignore_patterns = {
             'codegen.ts',
