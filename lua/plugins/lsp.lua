@@ -119,7 +119,7 @@ return {
                 includeAutomaticOptionalChainCompletions = true,
                 includeCompletionsWithClassMemberSnippets = true,
                 includeCompletionsWithInsertText = true,
-                importModuleSpecifierPreference = 'non-relative',
+                importModuleSpecifierPreference = 'relative',
                 importModuleSpecifierEnding = 'minimal',
                 provideRefactorNotApplicableReason = true,
                 allowRenameOfImportPath = true,
@@ -136,6 +136,10 @@ return {
           -- capabilities = {},
           settings = {
             Lua = {
+              diagnostics = {
+                -- Get the language server to recognize the `vim` global
+                globals = { 'vim' },
+              },
               completion = {
                 callSnippet = 'Replace',
               },

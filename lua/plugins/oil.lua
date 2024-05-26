@@ -7,8 +7,8 @@ return {
         columns = { 'icon' },
         keymaps = {
           ['<Esc><Esc>'] = 'actions.close',
-          ["<C-v>"] = "actions.select_vsplit",
-          ["<C-s>"] = false,
+          ['<C-v>'] = 'actions.select_vsplit',
+          ['<C-s>'] = false,
         },
         view_options = {
           show_hidden = true,
@@ -16,7 +16,7 @@ return {
         float = {
           -- Padding around the floating window
           padding = 10,
-          max_width = 0,
+          max_width = 80,
           max_height = 0,
           border = 'rounded',
           win_options = {
