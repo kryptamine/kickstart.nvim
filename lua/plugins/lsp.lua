@@ -107,29 +107,6 @@ return {
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
-        tsserver = {
-          {
-            capabilities = capabilities,
-            init_options = {
-              preferences = {
-                quotePreference = 'single',
-                includeCompletionsForModuleExports = true,
-                includeCompletionsForImportStatements = true,
-                includeCompletionsWithSnippetText = true,
-                includeAutomaticOptionalChainCompletions = true,
-                includeCompletionsWithClassMemberSnippets = true,
-                includeCompletionsWithInsertText = true,
-                importModuleSpecifierPreference = 'relative',
-                importModuleSpecifierEnding = 'minimal',
-                provideRefactorNotApplicableReason = true,
-                allowRenameOfImportPath = true,
-                allowTextChangesInNewFiles = true,
-                displayPartsForJSDoc = true,
-                generateReturnInDocTemplate = true,
-              },
-            },
-          },
-        },
         lua_ls = {
           -- cmd = {...},
           -- filetypes = { ...},
