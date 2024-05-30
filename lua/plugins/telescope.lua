@@ -1,8 +1,9 @@
 return {
   {
     'nvim-telescope/telescope.nvim',
-    event = 'VimEnter',
-    version = '^1.0.0',
+    cmd = 'Telescope',
+    version = false,
+    lazy = true,
     dependencies = {
       'nvim-lua/plenary.nvim',
       { -- If encountering errors, see telescope-fzf-native README for installation instructions
@@ -88,6 +89,7 @@ return {
           lsp_references = {
             show_line = false,
             path_display = filenameFirst,
+            initial_mode = 'normal',
           },
           treesitter = {
             show_line = false,
@@ -106,6 +108,18 @@ return {
             prompt_position = 'top',
             preview_cutoff = 120,
           },
+          vimgrep_arguments = {
+            'rg',
+            '--color=never',
+            '--no-heading',
+            '--with-filename',
+            '--line-number',
+            '--column',
+            '--smart-case',
+            '--hidden',
+            '--fixed-strings',
+            '--glob=!.git/',
+          },
           file_ignore_patterns = {
             'codegen.ts',
             '.git',
@@ -118,6 +132,7 @@ return {
         extensions = {
           live_grep_args = {
             auto_quoting = true,
+            additional_args = { '--fixed-strings' },
           },
           ['ui-select'] = {
             require('telescope.themes').get_dropdown {
@@ -151,6 +166,7 @@ return {
       -- See `:help telescope.builtin`
       local builtin = require 'telescope.builtin'
       local extensions = require('telescope').extensions
+      local utils = require 'telescope.utils'
 
       vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
       vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
@@ -158,6 +174,9 @@ return {
       vim.keymap.set('n', '<leader>ss', builtin.lsp_document_symbols, { desc = '[S]earch [S]ymbols' })
       vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
       vim.keymap.set('n', '<leader>sg', extensions.egrepify.egrepify, { desc = '[S]earch by [G]rep' })
+      vim.keymap.set('n', '<leader>sd', function()
+        builtin.find_files { cwd = utils.buffer_dir() }
+      end, { desc = '[S]earch in [D]irectory' })
       vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
       vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
       vim.keymap.set('n', '<leader><leader>', builtin.find_files, { desc = '[ ] Find files' })
