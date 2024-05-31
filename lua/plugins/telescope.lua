@@ -83,6 +83,13 @@ return {
               prompt_position = 'top',
             },
           },
+          git_status = {
+            path_display = filenameFirst,
+            initial_mode = 'normal',
+            layout_config = {
+              preview_width = 0.6,
+            },
+          },
           live_grep = {
             path_display = filenameFirst,
           },
@@ -117,7 +124,6 @@ return {
             '--column',
             '--smart-case',
             '--hidden',
-            '--fixed-strings',
             '--glob=!.git/',
           },
           file_ignore_patterns = {
