@@ -34,6 +34,7 @@ return {
         ['<leader>h'] = { name = '[H]arpoon', _ = 'which_key_ignore' },
         ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
         ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
+        ['<leader>t'] = { name = '[T]est', _ = 'which_key_ignore' },
         ['<leader>l'] = { name = '[L]azy Git', _ = 'which_key_ignore' },
         ['<leader>q'] = { name = '[Q]uit File', _ = 'which_key_ignore' },
         ['<leader>Q'] = { name = '[Q]uit Vim', _ = 'which_key_ignore' },
