@@ -58,11 +58,3 @@ keymap.set('n', '<leader>b', '<cmd>lua vim.lsp.buf.hover()<CR>', { desc = 'Displ
 -- Better copy and paste
 keymap.set('x', '<leader>p', [["_dP]], { desc = 'Paste without yanking' })
 keymap.set({ 'n', 'v' }, '<leader>d', [["_d]], { desc = 'Delete without yanking' })
-
-vim.keymap.set('n', ']b', function()
-  vim.cmd 'bnext'
-end, { desc = 'Go to the next buffer' })
-
-vim.keymap.set('n', '[b', function()
-  vim.cmd 'bprevious'
-end, { desc = 'Go to the previous buffer' })
