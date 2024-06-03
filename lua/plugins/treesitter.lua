@@ -39,17 +39,17 @@ return {
         incremental_selection = {
           enable = true,
           keymaps = {
-            init_selection = '<leader>vv',
-            node_incremental = '+',
+            init_selection = '<C-k>',
+            node_incremental = '<C-k>',
             scope_incremental = false,
-            node_decremental = '_',
+            node_decremental = '<C-j>',
           },
         },
         textobjects = {
           select = {
             enable = true,
             lookahead = true,
-
+            include_surrounding_whitespace = true,
             keymaps = {
               -- You can use the capture groups defined in textobjects.scm
               ['af'] = { query = '@function.outer', desc = 'around a function' },
@@ -71,7 +71,6 @@ return {
               ['@loop.outer'] = 'V', -- linewise
               ['@class.outer'] = '<c-v>', -- blockwise
             },
-            include_surrounding_whitespace = false,
           },
           move = {
             enable = true,
