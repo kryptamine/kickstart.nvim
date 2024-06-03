@@ -39,6 +39,17 @@ return {
           desc = 'Harpoon to File ' .. i,
         })
       end
+
+      local harpoon = require 'harpoon'
+
+      harpoon:extend {
+        UI_CREATE = function(cx)
+          vim.keymap.set('n', '<C-v>', function()
+            harpoon.ui:select_menu_item { vsplit = true }
+          end, { buffer = cx.bufnr })
+        end,
+      }
+
       return keys
     end,
   },
