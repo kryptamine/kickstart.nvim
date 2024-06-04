@@ -1,5 +1,5 @@
 # My neovim config
-Always WIP
+Inspired by https://github.com/adibhanna/nvim
 
 # Plugins
 - auto-session.lua
