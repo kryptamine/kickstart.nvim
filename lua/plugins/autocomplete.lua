@@ -6,7 +6,6 @@ return {
     -- Adds LSP completion capabilities
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-path',
-    'hrsh7th/cmp-buffer',
     'onsails/lspkind.nvim',
   },
   config = function()
@@ -27,8 +26,6 @@ return {
             vim_item.menu = ({
               nvim_lsp = '[LSP]',
               nvim_lua = '[Lua]',
-              buffer = '[Buffer]',
-              latex_symbols = '[LaTeX]',
             })[entry.source.name]
             return vim_item
           else
@@ -69,11 +66,11 @@ return {
       },
       sources = {
         { name = 'nvim_lsp' },
-        { name = 'nvim_lua' },
-        { name = 'buffer' },
         { name = 'path' },
-        { name = 'calc' },
-        { name = 'treesitter' },
+      },
+      experimental = {
+        ghost_text = true,
+        native_menu = false,
       },
     }
   end,
