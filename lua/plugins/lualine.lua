@@ -1,17 +1,12 @@
 return {
   {
     'nvim-lualine/lualine.nvim',
-    event = 'VeryLazy',
-    init = function()
-      vim.g.lualine_laststatus = vim.o.laststatus
-      if vim.fn.argc(-1) > 0 then
-        -- set an empty statusline till lualine loads
-        vim.o.statusline = ' '
-      else
-        -- hide the statusline on the starter page
-        vim.o.laststatus = 0
-      end
-    end,
+    dependencies = {
+      'meuter/lualine-so-fancy.nvim',
+    },
+    enabled = true,
+    lazy = false,
+    event = { 'BufReadPost', 'BufNewFile', 'VeryLazy' },
     opts = function()
       -- PERF: we don't need this lualine require madness 🤷
       local lualine_require = require 'lualine_require'
@@ -28,24 +23,35 @@ return {
 
       return {
         options = {
-          theme = 'catppuccin',
+          theme = 'auto',
           globalstatus = true,
-          disabled_filetypes = { statusline = { 'dashboard', 'alpha', 'starter' } },
+          disabled_filetypes = {
+            statusline = { 'dashboard', 'alpha', 'starter' },
+          },
         },
         sections = {
-          lualine_a = { 'mode' },
-          lualine_b = { 'branch', 'diff', 'diagnostics' },
-          lualine_c = {
+          lualine_a = {
+            { 'fancy_mode', width = 3 },
+          },
+          lualine_b = {
             {
               function()
                 local icon = require('config.icons').ui.Project
                 return icon .. ' ' .. get_root_dir()
               end,
             },
+            'fancy_branch',
           },
-          lualine_x = { 'encoding', 'fileformat', 'filetype' },
-          lualine_y = { 'progress' },
-          lualine_z = { 'location' },
+          lualine_c = {
+            { 'fancy_diagnostics', sources = { 'nvim_lsp' }, symbols = { error = ' ', warn = ' ', info = ' ' } },
+            { 'fancy_searchcount' },
+          },
+          lualine_x = {
+            'fancy_diff',
+            'progress',
+          },
+          lualine_y = {},
+          lualine_z = {},
         },
       }
     end,

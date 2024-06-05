@@ -25,13 +25,18 @@ return {
           end,
         },
       },
-      -- Example for loading neotest-go with a custom config
-      -- adapters = {
-      --   ["neotest-go"] = {
-      --     args = { "-tags=integration" },
-      --   },
-      -- },
-      status = { virtual_text = true },
+      status = {
+        enabled = true,
+        signs = true,
+        virtual_text = true,
+      },
+      floating = {
+        enabled = true,
+        border = 'rounded',
+        max_height = 0.9,
+        max_width = 0.9,
+        options = {},
+      },
       output = { open_on_run = true },
     },
     config = function(_, opts)
