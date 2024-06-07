@@ -67,6 +67,7 @@ return {
       sources = {
         { name = 'nvim_lsp' },
         { name = 'path' },
+        { name = 'treesitter' },
       },
       experimental = {
         ghost_text = true,
