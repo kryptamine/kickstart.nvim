@@ -11,3 +11,16 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank()
   end,
 })
+
+vim.api.nvim_create_autocmd('ColorScheme', {
+  callback = function()
+    vim.api.nvim_set_hl(0, 'FloatBorder', { link = 'Normal' })
+    vim.api.nvim_set_hl(0, 'LspInfoBorder', { link = 'Normal' })
+    vim.api.nvim_set_hl(0, 'NormalFloat', { link = 'Normal' })
+
+    vim.cmd 'highlight Winbar guibg=none'
+  end,
+})
+
+-- don't auto comment new line
+vim.api.nvim_create_autocmd('BufEnter', { command = [[set formatoptions-=cro]] })
