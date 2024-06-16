@@ -16,6 +16,7 @@ return {
       completion = {
         completeopt = 'menu,menuone,noinsert',
       },
+      ---@diagnostic disable-next-line: missing-fields
       formatting = {
         format = function(entry, vim_item)
           local lspkind_ok, lspkind = pcall(require, 'lspkind')

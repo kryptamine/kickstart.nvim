@@ -52,7 +52,7 @@ keymap.set('n', '<leader>q', '<cmd>q<CR>')
 keymap.set('n', '<leader>Q', '<cmd>qa<CR>')
 
 -- LSP
-keymap.set('n', '<leader>b', '<cmd>lua vim.lsp.buf.hover()<CR>', { desc = 'Display variable type' })
+keymap.set('n', '<leader>b', vim.lsp.buf.hover, { desc = 'Display variable type' })
 
 -- Better copy and paste
 keymap.set('x', '<leader>p', [["_dP]], { desc = 'Paste without yanking' })

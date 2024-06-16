@@ -1,7 +1,10 @@
 return {
+  -- HTML closing tags
   {
     'windwp/nvim-ts-autotag',
-    opts = {},
+    config = function()
+      require('nvim-ts-autotag').setup {}
+    end,
   },
   {
     'nvim-treesitter/nvim-treesitter-context',

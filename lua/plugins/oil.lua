@@ -6,6 +6,7 @@ return {
     },
     config = function()
       require('oil').setup {
+        default_file_explorer = true,
         columns = { 'icon' },
         keymaps = {
           ['<Esc><Esc>'] = 'actions.close',
@@ -14,9 +15,9 @@ return {
         },
         view_options = {
           show_hidden = true,
+          natural_order = true,
           is_always_hidden = function(name, _)
-            local ignore_list = { '.DS_Store' }
-            return vim.tbl_contains(ignore_list, name)
+            return name == '..' or name == '.git' or name == '.DS_Store'
           end,
         },
         float = {
@@ -26,13 +27,9 @@ return {
           max_height = 0,
           border = 'rounded',
           win_options = {
+            wrap = true,
             winblend = 0,
           },
-          -- This is the config that will be passed to nvim_open_win.
-          -- Change values here to customize the layout
-          override = function(conf)
-            return conf
-          end,
         },
       }
 
