@@ -37,7 +37,4 @@ return {
     ft = 'lua',
     opts = {},
   },
-  {
-    'tpope/vim-sleuth',
-  },
 }
