@@ -52,6 +52,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
       require('vtsls').commands.organize_imports(0)
     end, '[O]rganize imports(vtsls)')
 
+    map('<leader>cr', function()
+      require('vtsls').commands.remove_unused_imports(0)
+    end, '[R]emove unused imports(vtsls)')
+
     map('<leader>cM', function()
       require('vtsls').commands.add_missing_imports(0)
     end, 'Add [M]issing Imports(vtsls)')
