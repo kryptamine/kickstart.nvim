@@ -28,9 +28,6 @@ vim.api.nvim_create_autocmd('BufEnter', { command = [[set formatoptions-=cro]] }
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
   callback = function(event)
-    -- NOTE: Remember that Lua is a real programming language, and as such it is possible
-    -- to define small helper and utility functions so you don't have to repeat yourself.
-    --
     -- In this case, we create a function that lets us more easily define mappings specific
     -- for LSP related items. It sets the mode, buffer and description for us each time.
     local map = function(keys, func, desc)
@@ -46,24 +43,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
     map('gr', function()
       require('telescope.builtin').lsp_references { include_declaration = false }
     end, '[G]oto [R]eferences')
-
-    -- Imports
-    map('<leader>co', function()
-      require('vtsls').commands.organize_imports(0)
-    end, '[O]rganize imports(vtsls)')
-
-    map('<leader>cr', function()
-      require('vtsls').commands.remove_unused_imports(0)
-    end, '[R]emove unused imports(vtsls)')
-
-    map('<leader>cM', function()
-      require('vtsls').commands.add_missing_imports(0)
-    end, 'Add [M]issing Imports(vtsls)')
-
-    -- Fix all diagnostics
-    map('<leader>cD', function()
-      require('vtsls').commands.fix_all(0)
-    end, 'Fix all [D]iagnostics(vtsls)')
 
     -- Rename file
     map('<leader>cR', function()
@@ -88,9 +67,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
     --  Most Language Servers support renaming across files, etc.
     map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
 
-    -- Execute a code action, usually your cursor needs to be on top of an error
-    -- or a suggestion from your LSP for this to activate.
+    -- Map the combined function to the <leader>ca key binding
     map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
+    map('<leader>sa', require('vtsls').commands.source_actions, '[S]ource [A]ction')
 
     -- WARN: This is not Goto Definition, this is Goto Declaration.
     --  For example, in C this would take you to the header.

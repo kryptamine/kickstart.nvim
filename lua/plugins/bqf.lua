@@ -8,7 +8,7 @@ local function setup()
     end
   end
 
-  vim.keymap.set('n', '<leader>x', toggleQf, { desc = 'Toggle quickfix' })
+  vim.keymap.set('n', '<leader>x', toggleQf, { desc = 'Toggle quickfi[x]' })
   vim.keymap.set('n', ']q', ':cnext<CR>', { desc = 'Next quickfix' })
   vim.keymap.set('n', '[q', ':cprev<CR>', { desc = 'Previous quickfix' })
 
