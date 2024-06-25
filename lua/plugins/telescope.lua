@@ -111,6 +111,7 @@ return {
           prompt_prefix = ' ' .. icons.ui.Telescope .. ' ',
           selection_caret = icons.ui.BoldArrowRight .. ' ',
           color_devicons = true,
+          sorting_strategy = 'ascending',
           layout_config = {
             prompt_position = 'top',
             preview_cutoff = 120,
