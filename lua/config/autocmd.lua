@@ -12,6 +12,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+-- Draw the border for LSP floating windows
 vim.api.nvim_create_autocmd('ColorScheme', {
   callback = function()
     vim.api.nvim_set_hl(0, 'FloatBorder', { link = 'Normal' })
