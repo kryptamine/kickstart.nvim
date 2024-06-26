@@ -15,7 +15,7 @@
   "go.nvim": { "branch": "master", "commit": "78c6d7b970a79c34dc0f35149f4bd845e09803d6" },
   "guihua.lua": { "branch": "master", "commit": "225db770e36aae6a1e9e3a65578095c8eb4038d3" },
   "harpoon": { "branch": "harpoon2", "commit": "0378a6c428a0bed6a2781d459d7943843f374bce" },
-  "lazy.nvim": { "branch": "main", "commit": "0eb46e781666d2a5b288b671813f65b00896fff9" },
+  "lazy.nvim": { "branch": "main", "commit": "97f4df0824da13b2b0d065f0dc43c49862581a01" },
   "lazydev.nvim": { "branch": "main", "commit": "78d8a11fbd02ad4eafa07dd8a43a959a69fb3bf8" },
   "lazygit.nvim": { "branch": "main", "commit": "ad3e1ea592f9d13e86e0d4e850224d9d78069508" },
   "lspkind.nvim": { "branch": "master", "commit": "1735dd5a5054c1fb7feaf8e8658dbab925f4f0cf" },

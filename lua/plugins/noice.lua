@@ -27,7 +27,7 @@ return {
             event = 'notify',
             find = 'No information available',
           },
-          opts = { skip = true },
+          opts = { stop = true },
         },
       },
       presets = {

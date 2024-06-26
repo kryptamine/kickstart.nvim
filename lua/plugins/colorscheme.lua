@@ -77,8 +77,6 @@ return {
           hop = true,
           illuminate = { enabled = true },
           native_lsp = { enabled = true, inlay_hints = { background = true } },
-          neogit = true,
-          neotree = true,
           semantic_tokens = true,
           treesitter = true,
           treesitter_context = false,
@@ -87,7 +85,7 @@ return {
           aerial = true,
           mason = true,
           neotest = true,
-          dap_ui = true,
+          dashboard = true,
           telescope = {
             enabled = true,
             style = 'nvchad',
@@ -331,6 +329,7 @@ return {
           end,
         },
       }
+
       vim.api.nvim_set_hl(0, 'NavicIconsOperator', { default = true, bg = 'none', fg = '#eedaad' })
       vim.api.nvim_set_hl(0, 'NavicText', { default = true, bg = 'none', fg = '#eedaad' })
       vim.api.nvim_set_hl(0, 'NavicSeparator', { default = true, bg = 'none', fg = '#eedaad' })
