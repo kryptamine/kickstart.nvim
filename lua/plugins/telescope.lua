@@ -99,7 +99,6 @@ return {
             '.git',
             'lazy-lock.json',
             '*-lock.yaml',
-            'node_modules',
             '%.lock',
           },
         },
