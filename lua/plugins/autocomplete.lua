@@ -7,12 +7,22 @@ return {
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-path',
     'onsails/lspkind.nvim',
+
+    -- Snippet Engine & its associated nvim-cmp source
+    'L3MON4D3/LuaSnip',
+    'saadparwaiz1/cmp_luasnip',
   },
   config = function()
     local cmp = require 'cmp'
+    local luasnip = require 'luasnip'
     local kind_icons = require('config.icons').kind
 
     cmp.setup {
+      snippet = {
+        expand = function(args)
+          luasnip.lsp_expand(args.body)
+        end,
+      },
       completion = {
         completeopt = 'menu,menuone,noinsert',
       },
@@ -27,6 +37,7 @@ return {
             vim_item.menu = ({
               nvim_lsp = '[LSP]',
               nvim_lua = '[Lua]',
+              luasnip = '[LuaSnip]',
             })[entry.source.name]
             return vim_item
           else
@@ -49,6 +60,8 @@ return {
         ['<Tab>'] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_next_item()
+          elseif luasnip.expand_or_locally_jumpable() then
+            luasnip.expand_or_jump()
           else
             fallback()
           end
@@ -56,6 +69,8 @@ return {
         ['<S-Tab>'] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_prev_item()
+          elseif luasnip.locally_jumpable(-1) then
+            luasnip.jump(-1)
           else
             fallback()
           end
@@ -69,6 +84,7 @@ return {
         { name = 'nvim_lsp' },
         { name = 'path' },
         { name = 'treesitter' },
+        { name = 'luasnip' },
       },
       experimental = {
         ghost_text = true,
