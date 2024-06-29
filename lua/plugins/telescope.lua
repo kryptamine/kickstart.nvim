@@ -60,6 +60,10 @@ return {
             show_line = false,
             initial_mode = 'normal',
           },
+          lsp_definitions = {
+            show_line = false,
+            initial_mode = 'normal',
+          },
           treesitter = {
             show_line = false,
             previewer = true,
