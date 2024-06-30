@@ -333,4 +333,12 @@ return {
       vim.api.nvim_command 'colorscheme catppuccin'
     end,
   },
+  {
+    'Yazeed1s/oh-lucy.nvim',
+    priority = 150,
+    name = 'oh-lucy',
+    config = function()
+      -- vim.cmd [[colorscheme oh-lucy-evening]]
+    end,
+  },
 }
