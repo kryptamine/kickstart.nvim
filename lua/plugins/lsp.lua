@@ -12,8 +12,6 @@ return {
       'WhoIsSethDaniel/mason-tool-installer.nvim',
     },
     config = function()
-      require('lspconfig.configs').vtsls = require('vtsls').lspconfig
-
       vim.diagnostic.config {
         float = { border = 'rounded' },
       }
@@ -38,6 +36,10 @@ return {
         vtsls = {
           settings = {
             typescript = {
+              preferences = {
+                importModuleSpecifierEnding = 'index',
+                importModuleSpecifier = 'non-relative',
+              },
               updateImportsOnFileMove = { enabled = 'always' },
               suggest = {
                 completeFunctionCalls = true,
@@ -52,6 +54,10 @@ return {
               },
             },
             javascript = {
+              preferences = {
+                importModuleSpecifierEnding = 'index',
+                importModuleSpecifier = 'non-relative',
+              },
               updateImportsOnFileMove = { enabled = 'always' },
               inlayHints = {
                 parameterNames = { enabled = 'literals' },
@@ -110,6 +116,9 @@ return {
       require('mason-lspconfig').setup {
         handlers = {
           function(server_name)
+            if server_name == 'vtsls' then
+              require('lspconfig.configs').vtsls = require('vtsls').lspconfig
+            end
             local server = servers[server_name] or {}
             -- This handles overriding only values explicitly passed
             -- by the server configuration above. Useful when disabling
