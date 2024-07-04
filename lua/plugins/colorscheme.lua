@@ -334,11 +334,19 @@ return {
     end,
   },
   {
-    'Yazeed1s/oh-lucy.nvim',
-    priority = 150,
-    name = 'oh-lucy',
+    'Mofiqul/vscode.nvim',
+    name = 'vscode',
     config = function()
-      -- vim.cmd [[colorscheme oh-lucy-evening]]
+      require('vscode').setup {
+        -- Enable transparent background
+        transparent = false,
+        -- Enable italic comment
+        italic_comments = true,
+        -- Underline `@markup.link.*` variants
+        underline_links = true,
+      }
+
+      -- vim.api.nvim_command 'colorscheme vscode'
     end,
   },
 }
