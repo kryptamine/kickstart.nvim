@@ -7,7 +7,6 @@ return {
       { 'j-hui/fidget.nvim', opts = {} },
       -- Automatically install LSPs and related tools to stdpath for Neovim
       { 'williamboman/mason.nvim', config = true }, -- NOTE: Must be loaded before dependants
-      { 'yioneko/nvim-vtsls' },
       'williamboman/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
     },
@@ -33,53 +32,6 @@ return {
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
-        vtsls = {
-          settings = {
-            typescript = {
-              preferences = {
-                importModuleSpecifierEnding = 'index',
-                importModuleSpecifier = 'non-relative',
-              },
-              updateImportsOnFileMove = { enabled = 'always' },
-              suggest = {
-                completeFunctionCalls = true,
-              },
-              inlayHints = {
-                enumMemberValues = { enabled = true },
-                functionLikeReturnTypes = { enabled = true },
-                parameterNames = { enabled = 'literals' },
-                parameterTypes = { enabled = true },
-                propertyDeclarationTypes = { enabled = true },
-                variableTypes = { enabled = false },
-              },
-            },
-            javascript = {
-              preferences = {
-                importModuleSpecifierEnding = 'index',
-                importModuleSpecifier = 'non-relative',
-              },
-              updateImportsOnFileMove = { enabled = 'always' },
-              inlayHints = {
-                parameterNames = { enabled = 'literals' },
-                parameterTypes = { enabled = true },
-                variableTypes = { enabled = true },
-                propertyDeclarationTypes = { enabled = true },
-                functionLikeReturnTypes = { enabled = true },
-                enumMemberValues = { enabled = true },
-              },
-            },
-            complete_function_calls = true,
-            vtsls = {
-              enableMoveToFileCodeAction = true,
-              autoUseWorkspaceTsdk = true,
-              experimental = {
-                completion = {
-                  enableServerSideFuzzyMatch = true,
-                },
-              },
-            },
-          },
-        },
         lua_ls = {
           settings = {
             Lua = {
@@ -116,9 +68,6 @@ return {
       require('mason-lspconfig').setup {
         handlers = {
           function(server_name)
-            if server_name == 'vtsls' then
-              require('lspconfig.configs').vtsls = require('vtsls').lspconfig
-            end
             local server = servers[server_name] or {}
             -- This handles overriding only values explicitly passed
             -- by the server configuration above. Useful when disabling

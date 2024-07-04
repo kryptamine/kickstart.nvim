@@ -333,20 +333,4 @@ return {
       vim.api.nvim_command 'colorscheme catppuccin'
     end,
   },
-  {
-    'Mofiqul/vscode.nvim',
-    name = 'vscode',
-    config = function()
-      require('vscode').setup {
-        -- Enable transparent background
-        transparent = false,
-        -- Enable italic comment
-        italic_comments = true,
-        -- Underline `@markup.link.*` variants
-        underline_links = true,
-      }
-
-      -- vim.api.nvim_command 'colorscheme vscode'
-    end,
-  },
 }

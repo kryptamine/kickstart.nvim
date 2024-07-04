@@ -45,16 +45,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
       require('telescope.builtin').lsp_references { include_declaration = false }
     end, '[G]oto [R]eferences')
 
-    -- Rename file
-    map('<leader>cR', function()
-      require('vtsls').commands.rename_file(0)
-    end, 'Rename [F]ile(vtsls)')
-
-    -- Show file uses/references
-    map('<leader>cu', function()
-      require('vtsls').commands.file_references(0)
-    end, 'Show code [U]ses/Refs(vtsls)')
-
     -- Jump to the implementation of the word under your cursor.
     --  Useful when your language has ways of declaring types without an actual implementation.
     map('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
@@ -70,7 +60,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
     -- Map the combined function to the <leader>ca key binding
     map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
-    map('<leader>sa', require('vtsls').commands.source_actions, '[S]ource [A]ction')
 
     -- WARN: This is not Goto Definition, this is Goto Declaration.
     --  For example, in C this would take you to the header.
