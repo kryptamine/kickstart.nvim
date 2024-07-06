@@ -10,7 +10,7 @@ return {
           group = '+', -- symbol prepended to a group
         },
         window = {
-          border = 'single', -- none, single, double, shadow
+          border = 'none', -- none, single, double, shadow
           position = 'bottom', -- bottom, top
           zindex = 1000, -- positive value to position WhichKey above other floating windows.
         },
