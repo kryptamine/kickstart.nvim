@@ -28,10 +28,19 @@ return {
           disabled_filetypes = {
             statusline = { 'dashboard', 'alpha', 'starter' },
           },
+          section_separators = { left = '', right = '' },
+          component_separators = { left = '', right = '' },
         },
         sections = {
           lualine_a = {
-            { 'fancy_mode', width = 3 },
+            {
+              function()
+                return ''
+              end,
+              padding = { left = 1, right = 0 },
+              separator = '',
+            },
+            'mode',
           },
           lualine_b = {
             {
@@ -48,10 +57,17 @@ return {
           },
           lualine_x = {
             'fancy_diff',
-            'progress',
           },
-          lualine_y = {},
-          lualine_z = { 'location' },
+          lualine_y = { 'progress' },
+          lualine_z = {
+            { 'location', separator = '' },
+            {
+              function()
+                return ''
+              end,
+              padding = { left = 0, right = 1 },
+            },
+          },
         },
       }
     end,
