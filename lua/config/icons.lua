@@ -63,7 +63,7 @@ return {
     BoldClose = '',
     BoldDividerLeft = '',
     BoldDividerRight = '',
-    BoldLineLeft = '▎',
+    BoldLineLeft = '▌',
     BookMark = '',
     BoxChecked = '',
     Bug = '',

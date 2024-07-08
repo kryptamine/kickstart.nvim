@@ -42,7 +42,9 @@ return {
             return vim_item
           else
             -- From lspkind
-            return lspkind.cmp_format()(entry, vim_item)
+            return lspkind.cmp_format {
+              maxwidth = 30,
+            }(entry, vim_item)
           end
         end,
       },

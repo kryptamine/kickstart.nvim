@@ -51,7 +51,7 @@ return {
             'progress',
           },
           lualine_y = {},
-          lualine_z = {},
+          lualine_z = { 'location' },
         },
       }
     end,
