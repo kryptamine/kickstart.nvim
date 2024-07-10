@@ -103,7 +103,7 @@ return {
               TelescopePromptCounter = { fg = '#999999' },
               TelescopePromptNormal = { bg = colors.surface0 },
               TelescopePromptPrefix = { bg = colors.surface0, fg = colors.red },
-              TelescopePromptTitle = { fg = colors.surface0, bg = colors.surface0 },
+              TelescopePromptTitle = { fg = colors.none, bg = colors.red },
               TelescopeResultsBorder = { bg = colors.mantle, fg = colors.mantle },
               TelescopeResultsNormal = { bg = colors.mantle },
               TelescopeResultsTitle = { fg = colors.mantle, bg = colors.mantle },
