@@ -10,6 +10,9 @@ return {
           light = 'latte',
           dark = 'mocha',
         },
+        styles = { -- Handles the styles of general hi groups (see `:h highlight-args`):
+          comments = { 'italic' }, -- Change the style of comments
+        },
         color_overrides = {
           latte = {
             rosewater = '#c14a4a',
@@ -338,4 +341,30 @@ return {
       vim.api.nvim_command 'colorscheme catppuccin'
     end,
   },
+  -- {
+  --   'aktersnurra/no-clown-fiesta.nvim',
+  --   config = function()
+  --     require('no-clown-fiesta').setup {
+  --       transparent = false, -- Enable this to disable the bg color
+  --       styles = {
+  --         -- You can set any of the style values specified for `:h nvim_set_hl`
+  --         comments = {},
+  --         functions = {},
+  --         keywords = {},
+  --         lsp = { underline = true },
+  --         match_paren = {},
+  --         type = { bold = true },
+  --         variables = {},
+  --       },
+  --     }
+  --     local palette = require 'no-clown-fiesta.palette'
+  --
+  --     vim.cmd 'colorscheme no-clown-fiesta'
+  --     vim.api.nvim_set_hl(0, '@variable.builtin.typescript', { fg = palette.gray_blue })
+  --     vim.api.nvim_set_hl(0, '@attribute.typescript', { fg = palette.cyan })
+  --     vim.api.nvim_set_hl(0, '@type.builtin.typescript', { fg = palette.red })
+  --     vim.api.nvim_set_hl(0, '@constructor', { fg = palette.gray_blue })
+  --   end,
+  --   priority = 1000,
+  -- },
 }

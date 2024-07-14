@@ -88,10 +88,6 @@ return {
         { name = 'treesitter' },
         { name = 'luasnip' },
       },
-      experimental = {
-        ghost_text = true,
-        native_menu = false,
-      },
     }
   end,
 }
