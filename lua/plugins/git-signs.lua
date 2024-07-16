@@ -19,6 +19,9 @@ return {
         changedelete = {
           text = icons.ui.BoldLineLeft,
         },
+        untracked = {
+          text = icons.ui.BoldLineLeft,
+        },
       },
       signcolumn = true,
       numhl = false,

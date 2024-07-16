@@ -7,6 +7,11 @@ return {
     end,
   },
   {
+    'windwp/nvim-autopairs',
+    event = 'InsertEnter',
+    config = true,
+  },
+  {
     'nvim-treesitter/nvim-treesitter-context',
   },
   {
