@@ -23,6 +23,26 @@ return {
           text = icons.ui.BoldLineLeft,
         },
       },
+      signs_staged = {
+        add = {
+          text = icons.ui.BoldLineLeft,
+        },
+        change = {
+          text = icons.ui.BoldLineLeft,
+        },
+        delete = {
+          text = icons.ui.TriangleShortArrowRight,
+        },
+        topdelete = {
+          text = icons.ui.TriangleShortArrowRight,
+        },
+        changedelete = {
+          text = icons.ui.BoldLineLeft,
+        },
+        untracked = {
+          text = icons.ui.BoldLineLeft,
+        },
+      },
       signcolumn = true,
       numhl = false,
       linehl = false,

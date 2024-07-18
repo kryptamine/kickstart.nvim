@@ -10,7 +10,7 @@ keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnosti
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
 -- is not what someone will guess without a bit more experience.
-keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
+keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { noremap = true, silent = true, desc = 'which_key_ignore' })
 
 -- TIP: Disable arrow keys in normal mode
 keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')

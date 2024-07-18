@@ -23,7 +23,7 @@ return {
 
       return {
         options = {
-          theme = 'gruvbox_dark',
+          theme = 'vscode',
           globalstatus = true,
           disabled_filetypes = {
             statusline = { 'dashboard', 'alpha', 'starter' },
