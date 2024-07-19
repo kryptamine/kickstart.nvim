@@ -1,7 +1,9 @@
 # My neovim config
+
 Inspired by https://github.com/adibhanna/nvim
 
 # Plugins
+
 - auto-session.lua
 - autocomplete.lua
 - barbecue.lua
@@ -16,7 +18,6 @@ Inspired by https://github.com/adibhanna/nvim
 - formatter.lua
 - git-signs.lua
 - glance.lua
-- harpoon.lua
 - lazygit.lua
 - lsp.lua
 - lualine.lua
