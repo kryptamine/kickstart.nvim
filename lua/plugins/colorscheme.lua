@@ -346,6 +346,7 @@ return {
     name = 'vscode',
     priority = 1000,
     config = function()
+      local colors = require('vscode.colors').get_colors()
       require('vscode').setup {
         -- Enable transparent background
         transparent = false,
@@ -355,6 +356,19 @@ return {
 
         -- Underline `@markup.link.*` variants
         underline_links = true,
+        group_overrides = {
+          TelescopePreviewBorder = { bg = colors.vscLeftDark, fg = colors.vscLeftDark },
+          TelescopePreviewNormal = { bg = colors.vscLeftDark },
+          TelescopePreviewTitle = { fg = colors.vscLeftDark, bg = colors.vscLeftDark },
+          TelescopePromptBorder = { bg = colors.vscContext, fg = colors.vscContext },
+          TelescopePromptCounter = { fg = '#999999' },
+          TelescopePromptNormal = { bg = colors.vscContext },
+          TelescopePromptPrefix = { bg = colors.vscContext, fg = colors.vscRed },
+          TelescopePromptTitle = { fg = colors.vscNone, bg = colors.vscRed },
+          TelescopeResultsBorder = { bg = colors.vscLeftDark, fg = colors.vscLeftDark },
+          TelescopeResultsNormal = { bg = colors.vscLeftDark },
+          TelescopeResultsTitle = { fg = colors.vscLeftDark, bg = colors.vscLeftDark },
+        },
       }
 
       vim.api.nvim_command 'colorscheme vscode'

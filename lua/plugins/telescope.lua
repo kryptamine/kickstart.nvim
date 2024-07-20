@@ -29,7 +29,7 @@ return {
           find_files = {
             previewer = false,
             layout_config = {
-              width = 0.4,
+              width = 0.35,
               prompt_position = 'top',
             },
           },
