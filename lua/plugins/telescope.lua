@@ -48,7 +48,7 @@ return {
             initial_mode = 'normal',
             layout_config = {
               height = 0.4,
-              width = 0.4,
+              width = 0.35,
               prompt_position = 'top',
             },
           },
