@@ -12,6 +12,15 @@ return {
       },
     },
     init = function()
+      local disable_indentscope = function(data)
+        vim.b[data.buf].miniindentscope_disable = true
+      end
+
+      vim.api.nvim_create_autocmd('TermOpen', {
+        desc = "Disable 'mini.indentscope' in terminal buffer",
+        callback = disable_indentscope,
+      })
+
       vim.api.nvim_create_autocmd('FileType', {
         pattern = {
           'help',
