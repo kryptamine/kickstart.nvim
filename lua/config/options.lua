@@ -23,6 +23,8 @@ vim.opt.backspace = { 'start', 'eol', 'indent' }
 vim.opt.wildignore:append { '*/node_modules/*' }
 vim.opt.splitkeep = 'cursor'
 vim.opt.termguicolors = true
+vim.opt.guifont = 'monospace:h17' -- the font used in graphical neovim applications
+
 -- Don't show the ruler
 vim.opt.ruler = false
 -- Add asterisks in block comments
