@@ -27,6 +27,7 @@ return {
             cwd_only = true,
           },
           find_files = {
+            find_command = { 'rg', '--files', '--sortr=modified' },
             previewer = false,
             layout_config = {
               width = 0.35,
@@ -35,7 +36,7 @@ return {
           },
           buffers = {
             ignore_current_buffer = true,
-            sort_lastused = true,
+            sort_mru = true,
             mappings = {
               i = {
                 ['<c-d>'] = actions.delete_buffer,
@@ -101,6 +102,7 @@ return {
             '--column',
             '--smart-case',
             '--hidden',
+            '--sortr=modified',
             '--glob=!.git/',
           },
           file_ignore_patterns = {
