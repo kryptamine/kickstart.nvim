@@ -8,7 +8,6 @@ return {
         ['Add Cursor Down'] = '<M-C-Down>',
         ['Add Cursor Up'] = '<M-C-Up>',
       }
-      vim.g.VM_theme = 'codedark'
     end,
   },
 }
