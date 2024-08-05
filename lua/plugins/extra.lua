@@ -11,6 +11,7 @@ return {
     event = 'InsertEnter',
     config = true,
   },
+  -- Contextual information for the current cursor position.
   {
     'nvim-treesitter/nvim-treesitter-context',
   },
@@ -21,18 +22,6 @@ return {
         -- Configuration options for autoclose.nvim
         -- Example options:
         -- enable = true, -- Ensure the plugin is enabled
-      }
-    end,
-  },
-  -- Smooth scrolling neovim plugin written in lua
-  {
-    'karb94/neoscroll.nvim',
-    config = function()
-      require('neoscroll').setup {
-        stop_eof = true,
-        easing_function = 'sine',
-        hide_cursor = true,
-        cursor_scrolls_alone = true,
       }
     end,
   },
