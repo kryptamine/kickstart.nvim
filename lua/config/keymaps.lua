@@ -37,6 +37,9 @@ keymap.set('n', 'L', '$')
 -- Better ESC
 keymap.set('i', 'jj', '<Esc>')
 
+-- Split window
+keymap.set('n', 'sv', ':vsplit<Return>', { desc = 'Split vertically' })
+
 -- save opened buffers
 keymap.set({ 'i', 'x', 'n', 's' }, '<C-s>', '<cmd>wa<cr><esc>', { desc = 'Save File' })
 

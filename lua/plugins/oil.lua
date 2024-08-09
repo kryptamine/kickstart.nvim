@@ -31,6 +31,13 @@ return {
             winblend = 0,
           },
         },
+        lsp_file_methods = {
+          -- Time to wait for LSP file operations to complete before skipping
+          timeout_ms = 5000,
+          -- Set to true to autosave buffers that are updated with LSP willRenameFiles
+          -- Set to "unmodified" to only save unmodified buffers
+          autosave_changes = true,
+        },
       }
 
       -- Open parent directory in current window

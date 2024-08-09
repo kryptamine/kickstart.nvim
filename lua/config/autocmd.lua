@@ -125,5 +125,28 @@ vim.api.nvim_create_autocmd('TermOpen', {
   command = 'startinsert | set winfixheight',
 })
 
+-- close some filetypes with <esc>
+vim.api.nvim_create_autocmd('FileType', {
+  group = vim.api.nvim_create_augroup('close_with_esc', { clear = true }),
+  pattern = {
+    'oil',
+    'PlenaryTestPopup',
+    'help',
+    'lspinfo',
+    'man',
+    'notify',
+    'qf',
+    'startuptime',
+    'neotest-output',
+    'checkhealth',
+    'neotest-summary',
+    'neotest-output-panel',
+  },
+  callback = function(event)
+    vim.bo[event.buf].buflisted = false
+    vim.keymap.set('n', '<esc>', '<cmd>close<cr>', { buffer = event.buf, silent = true })
+  end,
+})
+
 -- Disable line numbers in terminal windows.
 vim.cmd 'autocmd TermOpen * setlocal nonumber norelativenumber'
