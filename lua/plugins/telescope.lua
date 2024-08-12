@@ -106,11 +106,10 @@ return {
             '--glob=!.git/',
           },
           file_ignore_patterns = {
-            'codegen.ts',
-            '.git',
-            'lazy-lock.json',
-            '*-lock.yaml',
-            '%.lock',
+            'node_modules/',
+            'package-lock.json',
+            'yarn.lock',
+            '.git/',
           },
         },
         extensions = {
