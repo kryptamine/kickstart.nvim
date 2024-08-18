@@ -106,7 +106,6 @@ return {
             '--glob=!.git/',
           },
           file_ignore_patterns = {
-            'node_modules/',
             'package-lock.json',
             'yarn.lock',
             '.git/',

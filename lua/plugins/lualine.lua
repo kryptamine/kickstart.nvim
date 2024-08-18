@@ -23,7 +23,7 @@ return {
 
       return {
         options = {
-          theme = 'vscode',
+          theme = 'auto',
           globalstatus = true,
           disabled_filetypes = {
             statusline = { 'dashboard', 'alpha', 'starter' },

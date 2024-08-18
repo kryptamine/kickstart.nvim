@@ -10,20 +10,14 @@ return {
     'windwp/nvim-autopairs',
     event = 'InsertEnter',
     config = true,
+    opts = {
+      check_ts = true, -- treesitter integration
+      disable_filetype = { 'TelescopePrompt', 'terminal' },
+    },
   },
   -- Contextual information for the current cursor position.
   {
     'nvim-treesitter/nvim-treesitter-context',
-  },
-  {
-    'm4xshen/autoclose.nvim',
-    config = function()
-      require('autoclose').setup {
-        -- Configuration options for autoclose.nvim
-        -- Example options:
-        -- enable = true, -- Ensure the plugin is enabled
-      }
-    end,
   },
   -- Neovim setup for init.lua and plugin development with full signature help, docs and completion for the nvim lua API
   {

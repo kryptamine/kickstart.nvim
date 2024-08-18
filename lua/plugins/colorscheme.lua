@@ -355,7 +355,7 @@ return {
         italic_comments = true,
 
         -- Underline `@markup.link.*` variants
-        underline_links = true,
+        underline_links = false,
         group_overrides = {
           TelescopePreviewBorder = { bg = colors.vscLeftDark, fg = colors.vscLeftDark },
           TelescopePreviewNormal = { bg = colors.vscLeftDark },
@@ -371,7 +371,20 @@ return {
         },
       }
 
-      vim.api.nvim_command 'colorscheme vscode'
+      -- vim.api.nvim_command 'colorscheme vscode'
+    end,
+  },
+  {
+    'fcancelinha/nordern.nvim',
+    branch = 'master',
+    priority = 1000,
+    config = function()
+      require('nordern').setup {
+        transparent = false,
+        brighter_comments = true,
+        italic_comments = true,
+      }
+      vim.api.nvim_command 'colorscheme nordern'
     end,
   },
 }
