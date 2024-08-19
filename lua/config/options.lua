@@ -90,10 +90,6 @@ vim.g.loaded_perl_provider = 0
 vim.diagnostic.config {
   signs = true,
   underline = false,
-  update_in_insert = true,
-  virtual_text = true,
-  severity_sort = false,
-  virtual_lines = true,
   float = {
     border = 'rounded',
     focusable = true,
