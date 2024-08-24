@@ -34,9 +34,6 @@ keymap.set('n', 'J', '}')
 keymap.set('n', 'K', '{')
 keymap.set('n', 'L', '$')
 
--- Better ESC
-keymap.set('i', 'jj', '<Esc>')
-
 -- Split window
 keymap.set('n', 'sv', ':vsplit<Return>', { desc = 'Split vertically' })
 
@@ -52,3 +49,6 @@ keymap.set('n', '<leader>b', vim.lsp.buf.hover, { desc = 'Display variable type'
 
 -- Better delete.
 keymap.set({ 'n', 'v' }, '<leader>d', [["_d]], { desc = 'Delete without yanking' })
+
+-- Fix backspace.
+keymap.set({ 't' }, '<S-BS>', '<bs>', { noremap = true, silent = true })
