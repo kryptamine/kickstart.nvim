@@ -52,3 +52,7 @@ keymap.set({ 'n', 'v' }, '<leader>d', [["_d]], { desc = 'Delete without yanking'
 
 -- Fix backspace.
 keymap.set({ 't' }, '<S-BS>', '<bs>', { noremap = true, silent = true })
+
+-- Move lines up and down.
+keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
+keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
