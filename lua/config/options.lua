@@ -66,6 +66,15 @@ local options = {
   --  See `:help vim.keymap.set()`,
   -- Set highlight on search, but clear on pressing <Esc> in normal mode,
   hlsearch = true,
+
+  -- What to save in session.
+  sessionoptions = {
+    'buffers',
+    'curdir',
+    'resize',
+    'winpos',
+    'winsize',
+  },
 }
 
 for k, v in pairs(options) do
