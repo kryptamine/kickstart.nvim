@@ -34,11 +34,13 @@ keymap.set('n', 'J', '}')
 keymap.set('n', 'K', '{')
 keymap.set('n', 'L', '$')
 
+local opts = { noremap = true, silent = true }
+
 -- Split window
 keymap.set('n', 'sv', ':vsplit<Return>', { desc = 'Split vertically' })
 
 -- save opened buffers
-keymap.set({ 'i', 'x', 'n', 's' }, '<C-s>', '<cmd>wa<cr><esc>', { desc = 'Save File' })
+keymap.set('n', '<C-s>', '<cmd>wa<cr>', { desc = 'Save File', noremap = true, silent = true })
 
 -- quit
 keymap.set('n', '<leader>q', '<cmd>q<CR>', { desc = 'Quit' })
@@ -51,8 +53,8 @@ keymap.set('n', '<leader>b', vim.lsp.buf.hover, { desc = 'Display variable type'
 keymap.set({ 'n', 'v' }, '<leader>d', [["_d]], { desc = 'Delete without yanking' })
 
 -- Fix backspace.
-keymap.set({ 't' }, '<S-BS>', '<bs>', { noremap = true, silent = true })
+keymap.set({ 't' }, '<S-BS>', '<bs>', opts)
 
 -- Move lines up and down.
-keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
-keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
+keymap.set('v', 'J', ":m '>+1<CR>gv=gv", opts)
+keymap.set('v', 'K', ":m '<-2<CR>gv=gv", opts)
