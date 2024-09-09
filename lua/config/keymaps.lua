@@ -40,7 +40,7 @@ local opts = { noremap = true, silent = true }
 keymap.set('n', 'sv', ':vsplit<Return>', { desc = 'Split vertically' })
 
 -- save opened buffers
-keymap.set('n', '<C-s>', '<cmd>wa<cr>', { desc = 'Save File', noremap = true, silent = true })
+keymap.set({ 'i', 'x', 'n', 's' }, '<C-s>', '<cmd>wa<cr><esc>', { desc = 'Save open buffers' })
 
 -- quit
 keymap.set('n', '<leader>q', '<cmd>q<CR>', { desc = 'Quit' })
