@@ -75,6 +75,9 @@ local options = {
     'winpos',
     'winsize',
   },
+
+  autoread = true,
+  swapfile = false,
 }
 
 for k, v in pairs(options) do

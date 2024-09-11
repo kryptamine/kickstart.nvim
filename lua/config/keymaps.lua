@@ -36,9 +36,6 @@ keymap.set('n', 'L', '$')
 
 local opts = { noremap = true, silent = true }
 
--- Split window
-keymap.set('n', 'sv', ':vsplit<Return>', { desc = 'Split vertically' })
-
 -- save opened buffers
 keymap.set({ 'i', 'x', 'n', 's' }, '<C-s>', '<cmd>wa<cr><esc>', { desc = 'Save open buffers' })
 
