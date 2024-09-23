@@ -37,8 +37,6 @@ vim.api.nvim_create_autocmd({ 'FocusGained', 'TermClose', 'TermLeave' }, {
 -- Draw the border for LSP floating windows
 vim.api.nvim_create_autocmd('ColorScheme', {
   callback = function()
-    vim.api.nvim_set_hl(0, 'FloatBorder', { link = 'Normal' })
-    vim.api.nvim_set_hl(0, 'LspInfoBorder', { link = 'Normal' })
     vim.api.nvim_set_hl(0, 'NormalFloat', { link = 'Normal' })
 
     vim.cmd 'highlight Winbar guibg=none'
