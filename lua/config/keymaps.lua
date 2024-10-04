@@ -55,3 +55,6 @@ keymap.set({ 't' }, '<S-BS>', '<bs>', opts)
 -- Move lines up and down.
 keymap.set('v', 'J', ":m '>+1<CR>gv=gv", opts)
 keymap.set('v', 'K', ":m '<-2<CR>gv=gv", opts)
+
+-- Better ESC
+keymap.set('i', 'jj', '<ESC>', { silent = true })
