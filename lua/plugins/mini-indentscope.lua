@@ -56,6 +56,7 @@ return {
           'toggleterm',
           'oil_preview',
           'norg',
+          'json',
         },
         callback = function()
           vim.b.miniindentscope_disable = true
