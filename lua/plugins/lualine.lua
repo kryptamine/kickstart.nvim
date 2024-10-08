@@ -49,7 +49,7 @@ return {
                 return icon .. ' ' .. get_root_dir()
               end,
             },
-            'fancy_branch',
+            'branch',
           },
           lualine_c = {
             { 'fancy_diagnostics', sources = { 'nvim_lsp' }, symbols = { error = ' ', warn = ' ', info = ' ' } },
