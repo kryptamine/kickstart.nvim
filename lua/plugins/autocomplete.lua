@@ -1,6 +1,7 @@
 return {
   -- Autocompletion
-  'hrsh7th/nvim-cmp',
+  'iguanacucumber/magazine.nvim',
+  name = 'nvim-cmp', -- Otherwise highlighting gets messed up
   event = 'InsertEnter',
   dependencies = {
     -- Adds LSP completion capabilities
