@@ -5,8 +5,8 @@ return {
     init = function()
       vim.g.VM_maps = {
         ['Find Under'] = '<C-n>',
-        ['Add Cursor Down'] = '<M-C-Down>',
-        ['Add Cursor Up'] = '<M-C-Up>',
+        ['Add Cursor Down'] = '<M-j>',
+        ['Add Cursor Up'] = '<M-k>',
       }
     end,
   },

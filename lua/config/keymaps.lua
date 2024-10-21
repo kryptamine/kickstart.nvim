@@ -62,6 +62,12 @@ keymap.set('i', 'jj', '<ESC>', { silent = true })
 -- Paste options
 keymap.set('v', 'p', '"_dP', { desc = 'Paste Without Overwriting' })
 
+-- Change text without putting it into the vim register,
+keymap.set('n', 'c', '"_c')
+keymap.set('n', 'C', '"_C')
+keymap.set('n', 'cc', '"_cc')
+keymap.set('x', 'c', '"_c')
+
 -- Deleting without yanking empty line
 keymap.set('n', 'dd', function()
   local is_empty_line = vim.api.nvim_get_current_line():match '^%s*$'
