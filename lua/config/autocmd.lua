@@ -135,10 +135,7 @@ vim.api.nvim_create_autocmd('FileType', {
     'notify',
     'qf',
     'startuptime',
-    'neotest-output',
     'checkhealth',
-    'neotest-summary',
-    'neotest-output-panel',
   },
   callback = function(event)
     vim.bo[event.buf].buflisted = false

@@ -58,3 +58,16 @@ keymap.set('v', 'K', ":m '<-2<CR>gv=gv", opts)
 
 -- Better ESC
 keymap.set('i', 'jj', '<ESC>', { silent = true })
+
+-- Paste options
+keymap.set('v', 'p', '"_dP', { desc = 'Paste Without Overwriting' })
+
+-- Deleting without yanking empty line
+keymap.set('n', 'dd', function()
+  local is_empty_line = vim.api.nvim_get_current_line():match '^%s*$'
+  if is_empty_line then
+    return '"_dd'
+  else
+    return 'dd'
+  end
+end, { noremap = true, expr = true, desc = "Don't Yank Empty Line to Clipboard" })
