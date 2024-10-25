@@ -81,12 +81,10 @@ return {
         -- stylua: ignore start
         map("n", "]h", function() gs.nav_hunk("next") end, "Next Hunk")
         map("n", "[h", function() gs.nav_hunk("prev") end, "Prev Hunk")
-        map('n', '<leader>gd', gs.diffthis, 'Diff This')
         map({ "n", "v" }, "<leader>gr", ":Gitsigns reset_hunk<CR>", "Reset Hunk")
         map("n", "<leader>gR", gs.reset_buffer, "Reset Buffer")
         map("n", "<leader>gp", gs.preview_hunk, "Preview Hunk Inline")
         map("n", "<leader>gb", function() gs.blame_line({ full = true }) end, "Blame Line")
-        map("n", "<leader>gq", ":only<CR>", "Quit Diff")
       end,
     },
   },
