@@ -16,7 +16,16 @@ return {
         snippet_forward = '<Tab>',
         snippet_backward = '<S-Tab>',
       },
-
+      sources = {
+        providers = {
+          buffer = {
+            fallback_for = {},
+            max_items = 4,
+            min_keyword_length = 1,
+            score_offset = -3,
+          },
+        },
+      },
       highlight = {
         -- sets the fallback highlight groups to nvim-cmp's highlight groups
         -- useful for when your theme doesn't support blink.cmp
@@ -25,7 +34,7 @@ return {
       },
       -- set to 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
       -- adjusts spacing to ensure icons are aligned
-      nerd_font_variant = 'mono',
+      nerd_font_variant = 'normal',
 
       -- experimental auto-brackets support
       -- accept = { auto_brackets = { enabled = true } },
