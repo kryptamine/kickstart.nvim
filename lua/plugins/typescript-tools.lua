@@ -1,35 +1,32 @@
 return {
   {
     'pmizio/typescript-tools.nvim',
-    dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
-    opts = {},
+    event = 'BufEnter',
     config = function()
       local api = require 'typescript-tools.api'
       require('typescript-tools').setup {
-        handlers = {
-          ['textDocument/publishDiagnostics'] = api.filter_diagnostics { 6133 },
+        filetypes = {
+          'javascript',
+          'javascriptreact',
+          'javascript.jsx',
+          'typescript',
+          'typescriptreact',
+          'typescript.tsx',
+          'vue',
         },
         settings = {
           expose_as_code_action = 'all',
-          tsserver_max_memory = 'auto',
-          complete_function_calls = true,
-          include_completions_with_insert_text = true,
           tsserver_file_preferences = {
             importModuleSpecifierPreference = 'non-relative',
+            providePrefixAndSuffixTextForRename = false,
           },
-          jsx_close_tag = {
-            enable = true,
-            filetypes = { 'javascriptreact', 'typescriptreact' },
-          },
+          separate_diagnostic_server = true,
+          publish_diagnostic_on = 'insert_leave',
+        },
+        handlers = {
+          ['textDocument/publishDiagnostics'] = api.filter_diagnostics { 6133 },
         },
       }
-      local autocmd = vim.api.nvim_create_autocmd
-      autocmd('BufWritePre', {
-        pattern = '*.ts,*.tsx,*.jsx,*.js',
-        callback = function()
-          vim.cmd 'TSToolsAddMissingImports sync'
-        end,
-      })
     end,
   },
 }

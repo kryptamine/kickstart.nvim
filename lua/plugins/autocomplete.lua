@@ -8,13 +8,6 @@ return {
         show = '<C-space>',
         hide = '<C-e>',
         accept = '<CR>',
-        select_prev = { '<Up>', '<C-p>' },
-        select_next = { '<Down>', '<C-n>' },
-        scroll_documentation_up = '<C-d>',
-        scroll_documentation_down = '<C-f>',
-
-        snippet_forward = '<Tab>',
-        snippet_backward = '<S-Tab>',
       },
       sources = {
         providers = {
@@ -34,13 +27,7 @@ return {
       },
       -- set to 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
       -- adjusts spacing to ensure icons are aligned
-      nerd_font_variant = 'normal',
-
-      -- experimental auto-brackets support
-      -- accept = { auto_brackets = { enabled = true } },
-
-      -- experimental signature help support
-      -- trigger = { signature_help = { enabled = true } },
+      nerd_font_variant = 'mono',
     },
   },
 }
