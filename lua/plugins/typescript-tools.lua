@@ -27,6 +27,15 @@ return {
           ['textDocument/publishDiagnostics'] = api.filter_diagnostics { 6133 },
         },
       }
+
+      local autocmd = vim.api.nvim_create_autocmd
+
+      autocmd('BufWritePre', {
+        pattern = '*.ts,*.tsx,*.jsx,*.js',
+        callback = function()
+          vim.cmd 'TSToolsAddMissingImports sync'
+        end,
+      })
     end,
   },
 }
