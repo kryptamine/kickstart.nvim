@@ -82,6 +82,10 @@ return {
         end,
       })
 
+      vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
+        border = 'single', -- or your preferred border style
+      })
+
       local capabilities = vim.lsp.protocol.make_client_capabilities()
 
       capabilities.textDocument.completion.completionItem.snippetSupport = true

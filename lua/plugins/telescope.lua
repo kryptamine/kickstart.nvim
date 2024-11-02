@@ -37,19 +37,19 @@ return {
           buffers = {
             ignore_current_buffer = true,
             sort_mru = true,
+            sort_lastused = true,
             mappings = {
               i = {
-                ['<c-d>'] = actions.delete_buffer,
+                ['d'] = actions.delete_buffer,
               },
               n = {
-                ['<c-d>'] = actions.delete_buffer,
+                ['d'] = actions.delete_buffer,
+                ['q'] = actions.close,
               },
             },
-            previewer = false,
+            previewer = true,
             initial_mode = 'normal',
             layout_config = {
-              height = 0.4,
-              width = 0.35,
               prompt_position = 'top',
             },
           },
