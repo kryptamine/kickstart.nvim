@@ -121,14 +121,6 @@ return {
               previewer = false,
               initial_mode = 'normal',
               sorting_strategy = 'ascending',
-              layout_strategy = 'horizontal',
-              layout_config = {
-                horizontal = {
-                  width = 0.5,
-                  height = 0.4,
-                  preview_width = 0.6,
-                },
-              },
             },
           },
           fzf = {
@@ -158,20 +150,6 @@ return {
       vim.keymap.set('n', '<leader><leader>', builtin.find_files, { desc = 'Find files' })
       vim.keymap.set('n', '<leader>gc', builtin.git_commits, { desc = '[G]it [C]ommits' })
       vim.keymap.set('n', '<leader>gs', builtin.git_status, { desc = '[G]it [S]tatus' })
-
-      -- Slightly advanced example of overriding default behavior and theme
-      vim.keymap.set('n', '<leader>/', function()
-        -- You can pass additional configuration to Telescope to change the theme, layout, etc.
-        builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-          winblend = 10,
-          previewer = false,
-          layout_config = {
-            height = 0.4,
-            width = 0.4,
-            prompt_position = 'top',
-          },
-        })
-      end, { desc = '[/] Fuzzily search in current buffer' })
 
       -- It's also possible to pass additional configuration options.
       --  See `:help telescope.builtin.live_grep()` for information about particular keys
