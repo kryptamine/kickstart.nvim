@@ -41,6 +41,7 @@ return {
             mappings = {
               i = {
                 ['d'] = actions.delete_buffer,
+                ['q'] = actions.close,
               },
               n = {
                 ['d'] = actions.delete_buffer,
@@ -85,7 +86,7 @@ return {
             horizontal = { preview_cutoff = 80, preview_width = 0.55 },
             vertical = { mirror = true, preview_cutoff = 25 },
             prompt_position = 'top',
-            width = 0.87,
+            width = 0.80,
             height = 0.80,
           },
           path_display = {
@@ -121,6 +122,7 @@ return {
               previewer = false,
               initial_mode = 'normal',
               sorting_strategy = 'ascending',
+              layout_strategy = 'horizontal',
             },
           },
           fzf = {

@@ -86,7 +86,8 @@ return {
         border = 'single', -- or your preferred border style
       })
 
-      local capabilities = vim.lsp.protocol.make_client_capabilities()
+      local default_capabilities = vim.lsp.protocol.make_client_capabilities()
+      local capabilities = require('blink.cmp').get_lsp_capabilities(default_capabilities)
 
       capabilities.textDocument.completion.completionItem.snippetSupport = true
 
