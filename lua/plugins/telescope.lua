@@ -40,11 +40,11 @@ return {
             sort_lastused = true,
             mappings = {
               i = {
-                ['d'] = actions.delete_buffer,
+                ['<C-d>'] = actions.delete_buffer,
                 ['q'] = actions.close,
               },
               n = {
-                ['d'] = actions.delete_buffer,
+                ['<C-d>'] = actions.delete_buffer,
                 ['q'] = actions.close,
               },
             },

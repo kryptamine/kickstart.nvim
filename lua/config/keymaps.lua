@@ -7,11 +7,6 @@ keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagn
 keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
 keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
 
--- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
--- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
--- is not what someone will guess without a bit more experience.
-keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { noremap = true, silent = true, desc = 'which_key_ignore' })
-
 -- TIP: Disable arrow keys in normal mode
 keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
 keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
@@ -77,3 +72,8 @@ keymap.set('n', 'dd', function()
     return 'dd'
   end
 end, { noremap = true, expr = true, desc = "Don't Yank Empty Line to Clipboard" })
+
+-- Snacks
+keymap.set('t', '<c-t>', function()
+  Snacks.terminal.toggle()
+end, { desc = 'Toggle Terminal' })

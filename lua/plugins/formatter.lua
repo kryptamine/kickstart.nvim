@@ -20,6 +20,7 @@ local options = {
     lua = { 'stylua' },
     python = { 'isort', 'black' },
     c = { 'clang-format' },
+    go = { 'gofmt' },
   },
 
   formatters = {},

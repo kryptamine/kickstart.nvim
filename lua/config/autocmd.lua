@@ -46,13 +46,6 @@ vim.api.nvim_create_autocmd('ColorScheme', {
 -- don't auto comment new line
 vim.api.nvim_create_autocmd('BufEnter', { command = [[set formatoptions-=cro]] })
 
--- Start terminal in insert mode.
-vim.api.nvim_create_autocmd('TermOpen', {
-  group = vim.api.nvim_create_augroup('bufcheck', { clear = true }),
-  pattern = '*',
-  command = 'startinsert | set winfixheight',
-})
-
 -- close some filetypes with <esc>
 vim.api.nvim_create_autocmd('FileType', {
   group = vim.api.nvim_create_augroup('close_with_esc', { clear = true }),
@@ -72,6 +65,3 @@ vim.api.nvim_create_autocmd('FileType', {
     vim.keymap.set('n', '<esc>', '<cmd>close<cr>', { buffer = event.buf, silent = true })
   end,
 })
-
--- Disable line numbers in terminal windows.
-vim.cmd 'autocmd TermOpen * setlocal nonumber norelativenumber'
