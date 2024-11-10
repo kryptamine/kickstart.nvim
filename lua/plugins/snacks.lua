@@ -5,7 +5,8 @@ return {
     lazy = false,
     opts = {
       statuscolumn = { enabled = false },
-      bufdelete = { enabled = false },
+      quickfile = { enabled = false },
+      rename = { enabled = false },
       terminal = {
         enabled = true,
         win = {
@@ -14,13 +15,13 @@ return {
         },
       },
       words = {
-        enabled = true, -- enable/disable the plugin
-        debounce = 200, -- time in ms to wait before updating
-        notify_jump = false, -- show a notification when jumping
-        notify_end = true, -- show a notification when reaching the end
-        foldopen = true, -- open folds after jumping
-        jumplist = true, -- set jump point before jumping
-        modes = { 'n' }, -- modes to show references
+        enabled = true,
+        debounce = 200,
+        notify_jump = false,
+        notify_end = true,
+        foldopen = true,
+        jumplist = true,
+        modes = { 'n' },
       },
     },
     keys = {

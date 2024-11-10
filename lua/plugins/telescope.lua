@@ -56,9 +56,6 @@ return {
           },
           git_status = {
             initial_mode = 'normal',
-            layout_config = {
-              preview_width = 0.6,
-            },
           },
           lsp_references = {
             show_line = false,
