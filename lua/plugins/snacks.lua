@@ -7,6 +7,7 @@ return {
       statuscolumn = { enabled = false },
       quickfile = { enabled = false },
       rename = { enabled = false },
+      bufdelete = { enabled = false },
       terminal = {
         enabled = true,
         win = {

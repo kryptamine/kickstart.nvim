@@ -35,6 +35,7 @@ return {
           'vimdoc',
           'yaml',
           'terraform',
+          'python',
         },
         incremental_selection = {
           enable = true,
