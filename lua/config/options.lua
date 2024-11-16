@@ -73,6 +73,7 @@ local options = {
 
   autoread = true,
   swapfile = false,
+  smoothscroll = true,
 }
 
 for k, v in pairs(options) do
