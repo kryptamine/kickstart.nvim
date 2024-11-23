@@ -33,6 +33,7 @@ return {
       quickfile = { enabled = false },
       rename = { enabled = false },
       bufdelete = { enabled = false },
+      notifier = { enabled = true },
       terminal = {
         enabled = true,
         win = {
@@ -48,6 +49,11 @@ return {
         foldopen = true,
         jumplist = true,
         modes = { 'n' },
+      },
+      styles = {
+        notification = {
+          border = 'single',
+        },
       },
     },
     keys = {
