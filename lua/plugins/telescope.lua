@@ -13,6 +13,7 @@ return {
         build = 'make',
       },
       'nvim-telescope/telescope-ui-select.nvim',
+      'fdschmidt93/telescope-egrepify.nvim',
       -- Useful for getting pretty icons, but requires a Nerd Font.
       'nvim-tree/nvim-web-devicons',
     },
@@ -110,6 +111,9 @@ return {
           },
         },
         extensions = {
+          egrepify = {
+            results_ts_hl = true,
+          },
           live_grep_args = {
             auto_quoting = true,
             additional_args = { '--fixed-strings' },
@@ -134,6 +138,7 @@ return {
       -- Enable Telescope extensions if they are installed
       telescope.load_extension 'fzf'
       telescope.load_extension 'ui-select'
+      telescope.load_extension 'egrepify'
 
       -- See `:help telescope.builtin`
       local builtin = require 'telescope.builtin'
@@ -144,7 +149,7 @@ return {
       vim.keymap.set('n', '<leader>sb', builtin.buffers, { desc = '[S]earch [B]uffers' })
       vim.keymap.set('n', '<leader>ss', builtin.lsp_document_symbols, { desc = '[S]earch [S]ymbols' })
       vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
-      vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
+      vim.keymap.set('n', '<leader>sg', telescope.extensions.egrepify.egrepify, { desc = '[S]earch by [G]rep' })
       vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
       vim.keymap.set('n', '<leader><leader>', builtin.find_files, { desc = 'Find files' })
       vim.keymap.set('n', '<leader>gc', builtin.git_commits, { desc = '[G]it [C]ommits' })
