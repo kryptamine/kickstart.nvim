@@ -10,7 +10,7 @@ return {
         hi = {
           mixing_color = '#RRGGBB',
         },
-        preset = 'classic',
+        preset = 'powerline',
       }
     end,
   },
