@@ -10,18 +10,9 @@ return {
         ['<C-n>'] = { 'select_next', 'fallback' },
         ['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
       },
-      sources = {
-        providers = {
-          buffer = {
-            fallback_for = {},
-            max_items = 4,
-            min_keyword_length = 1,
-            score_offset = -3,
-          },
-        },
-      },
-      highlight = {
-        use_nvim_cmp_as_default = false,
+      appearance = {
+        use_nvim_cmp_as_default = true,
+        nerd_font_variant = 'mono',
       },
     },
   },
