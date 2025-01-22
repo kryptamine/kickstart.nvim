@@ -58,6 +58,13 @@ return {
     },
     keys = {
       {
+        '<leader>cR',
+        function()
+          Snacks.rename.rename_file()
+        end,
+        desc = 'Rename File',
+      },
+      {
         '<leader>lg',
         function()
           Snacks.lazygit()
