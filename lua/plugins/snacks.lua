@@ -41,6 +41,15 @@ return {
           border = 'single',
         },
       },
+      indent = {
+        enabled = true,
+        animate = {
+          enabled = false,
+        },
+        scope = {
+          hl = 'SnacksIndent6',
+        },
+      },
       words = {
         enabled = true,
         debounce = 200,
