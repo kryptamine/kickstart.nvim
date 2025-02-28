@@ -1,3 +1,10 @@
+-- Function to get the root directory name
+local function get_root_dir()
+  local cwd = vim.fn.getcwd()
+  local project_name = vim.fn.fnamemodify(cwd, ':t')
+  return project_name
+end
+
 return {
   {
     'nvim-lualine/lualine.nvim',
@@ -5,13 +12,6 @@ return {
     lazy = false,
     event = { 'BufReadPost', 'BufNewFile', 'VeryLazy' },
     opts = function()
-      -- Function to get the root directory name
-      local function get_root_dir()
-        local cwd = vim.fn.getcwd()
-        local project_name = vim.fn.fnamemodify(cwd, ':t')
-        return project_name
-      end
-
       return {
         options = {
           theme = 'auto',
