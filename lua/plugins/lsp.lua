@@ -114,6 +114,10 @@ return {
                 propertyDeclarationTypes = { enabled = true },
                 variableTypes = { enabled = false },
               },
+              preferences = {
+                importModuleSpecifier = 'non-relative', -- Enable named imports
+                importModuleSpecifierEnding = 'auto', -- Optional, auto appends `.js` for JS/TS files
+              },
             },
           },
         },
