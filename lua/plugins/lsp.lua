@@ -47,6 +47,24 @@ return {
           -- WARN: This is not Goto Definition, this is Goto Declaration.
           --  For example, in C this would take you to the header.
           map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+
+          map('<leader>cM', function()
+            vim.lsp.buf.code_action {
+              context = {
+                only = { 'source.addMissingImports.ts' },
+                diagnostics = {},
+              },
+              apply = true,
+            }
+
+            vim.lsp.buf.code_action {
+              context = {
+                only = { 'source.removeUnused.ts' },
+                diagnostics = {},
+              },
+              apply = true,
+            }
+          end, '[C]ode [M]issing Imports')
         end,
       })
 
@@ -60,6 +78,45 @@ return {
       capabilities.textDocument.completion.completionItem.snippetSupport = true
 
       local servers = {
+        vtsls = {
+          -- explicitly add default filetypes, so that we can extend
+          -- them in related extras
+          filetypes = {
+            'javascript',
+            'javascriptreact',
+            'javascript.jsx',
+            'typescript',
+            'typescriptreact',
+            'typescript.tsx',
+          },
+          settings = {
+            complete_function_calls = true,
+            vtsls = {
+              enableMoveToFileCodeAction = true,
+              autoUseWorkspaceTsdk = true,
+              experimental = {
+                maxInlayHintLength = 30,
+                completion = {
+                  enableServerSideFuzzyMatch = true,
+                },
+              },
+            },
+            typescript = {
+              updateImportsOnFileMove = { enabled = 'always' },
+              suggest = {
+                completeFunctionCalls = true,
+              },
+              inlayHints = {
+                enumMemberValues = { enabled = true },
+                functionLikeReturnTypes = { enabled = true },
+                parameterNames = { enabled = 'literals' },
+                parameterTypes = { enabled = true },
+                propertyDeclarationTypes = { enabled = true },
+                variableTypes = { enabled = false },
+              },
+            },
+          },
+        },
         lua_ls = {
           settings = {
             Lua = {
