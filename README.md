@@ -6,14 +6,12 @@ Inspired by https://github.com/adibhanna/nvim
 
 - auto-session.lua
 - autocomplete.lua
-- barbecue.lua
+- dropbar.lua
 - colorizer.lua
 - colorscheme.lua
 - comments.lua
 - copilot.lua
 - dashboard.lua
-- dressing.lua
-- early-retirement.lua
 - extra.lua
 - formatter.lua
 - git-signs.lua
@@ -23,18 +21,14 @@ Inspired by https://github.com/adibhanna/nvim
 - lualine.lua
 - mini-indentscope.lua
 - mini.lua
-- neotest.lua
 - noice.lua
 - notify.lua
 - nvim-surround.lua
 - oil.lua
-- spectre.lua
-- telescope.lua
+- snacks
 - template-string.lua
 - todo-comments.lua
 - treesitter.lua
-- typescript-tools.lua
-- visual-multi.lua
 - which-key.lua
 
 # Screenshots

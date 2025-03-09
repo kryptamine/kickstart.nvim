@@ -57,6 +57,9 @@ return {
               preview = false,
             },
           },
+          lsp_references = {
+            focus = 'list',
+          },
           git_status = {
             focus = 'list',
           },
