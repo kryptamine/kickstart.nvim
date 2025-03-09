@@ -43,34 +43,25 @@ return {
         },
         formatters = {
           file = {
-            truncate = 200,
+            truncate = 70,
           },
         },
-        -- layouts = {
-        --   default = {
-        --     layout = {
-        --       backdrop = false,
-        --       border = 'none',
-        --       box = 'horizontal',
-        --       width = 0.35,
-        --       min_width = 70,
-        --     },
-        --   },
-        -- },
         sources = {
           smart = {
+            formatters = {
+              file = {
+                truncate = 200,
+              },
+            },
             layout = {
               preview = false,
             },
           },
+          git_status = {
+            focus = 'list',
+          },
           buffers = {
-            win = {
-              input = {
-                keys = {
-                  ['<c-d>'] = { 'bufdelete', mode = { 'n', 'i' } },
-                },
-              },
-            },
+            focus = 'list',
           },
         },
       },
