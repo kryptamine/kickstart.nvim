@@ -63,9 +63,6 @@ return {
           git_status = {
             focus = 'list',
           },
-          buffers = {
-            focus = 'list',
-          },
         },
       },
       terminal = {
