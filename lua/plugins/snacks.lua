@@ -57,6 +57,9 @@ return {
               preview = false,
             },
           },
+          lsp_definitions = {
+            focus = 'list',
+          },
           lsp_references = {
             focus = 'list',
           },

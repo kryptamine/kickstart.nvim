@@ -24,6 +24,29 @@ vim.api.nvim_create_autocmd('BufReadPost', {
   end,
 })
 
+vim.api.nvim_create_autocmd('User', {
+  desc = 'Close buffers when files are deleted in Oil',
+  pattern = 'OilActionsPost',
+  callback = function(args)
+    if args.data.err then
+      return
+    end
+    for _, action in ipairs(args.data.actions) do
+      if action.type == 'delete' then
+        local _, path = require('oil.util').parse_url(action.url)
+        local bufnr = vim.fn.bufnr(path)
+
+        if bufnr ~= -1 then
+          Snacks.bufdelete.delete {
+            buf = bufnr,
+          }
+          vim.cmd.bwipeout { bufnr, bang = true }
+        end
+      end
+    end
+  end,
+})
+
 -- Check if we need to reload the file when it changed
 vim.api.nvim_create_autocmd({ 'FocusGained', 'TermClose', 'TermLeave' }, {
   group = vim.api.nvim_create_augroup('checktime', { clear = true }),
