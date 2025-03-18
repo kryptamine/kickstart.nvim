@@ -1,10 +1,3 @@
--- Function to get the root directory name
-local function get_root_dir()
-  local cwd = vim.fn.getcwd()
-  local project_name = vim.fn.fnamemodify(cwd, ':t')
-  return project_name
-end
-
 return {
   {
     'nvim-lualine/lualine.nvim',
@@ -34,13 +27,16 @@ return {
             'mode',
           },
           lualine_b = {
+            'branch',
             {
-              function()
-                local icon = require('config.icons').ui.Project
-                return icon .. ' ' .. get_root_dir()
+              'filename',
+              path = 1,
+              padding = { left = 1, right = 1 },
+              fmt = function(name)
+                local icon = '󰈙 '
+                return icon .. name
               end,
             },
-            'branch',
           },
           lualine_c = {
             { 'diagnostics', sources = { 'nvim_lsp' }, symbols = { error = ' ', warn = ' ', info = ' ' } },
