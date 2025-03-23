@@ -41,11 +41,6 @@ return {
             backdrop = 70,
           },
         },
-        formatters = {
-          file = {
-            truncate = 70,
-          },
-        },
         sources = {
           smart = {
             formatters = {
