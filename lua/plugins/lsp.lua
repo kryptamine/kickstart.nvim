@@ -25,6 +25,8 @@ return {
           -- Map the combined function to the <leader>ca key binding
           map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
+          map('<leader>b', vim.lsp.buf.hover, 'Display variable type')
+
           map('<leader>cM', function()
             vim.lsp.buf.code_action {
               context = {

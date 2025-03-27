@@ -38,9 +38,6 @@ keymap.set({ 'i', 'x', 'n', 's' }, '<C-s>', '<cmd>wa<cr><esc>', { desc = 'Save o
 keymap.set('n', '<leader>q', '<cmd>q<CR>', { desc = 'Quit' })
 keymap.set('n', '<leader>Q', '<cmd>qa<CR>', { desc = 'Quit all' })
 
--- LSP
-keymap.set('n', '<leader>b', vim.lsp.buf.hover, { desc = 'Display variable type' })
-
 -- Better delete.
 keymap.set({ 'n', 'v' }, '<leader>d', [["_d]], { desc = 'Delete without yanking' })
 
