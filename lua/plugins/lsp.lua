@@ -47,10 +47,6 @@ return {
         end,
       })
 
-      vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
-        border = 'single', -- or your preferred border style
-      })
-
       local default_capabilities = vim.lsp.protocol.make_client_capabilities()
       local capabilities = require('blink.cmp').get_lsp_capabilities(default_capabilities)
 

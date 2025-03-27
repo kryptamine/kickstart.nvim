@@ -74,6 +74,7 @@ local options = {
   autoread = true,
   swapfile = false,
   smoothscroll = true,
+  winborder = 'rounded',
 }
 
 for k, v in pairs(options) do
