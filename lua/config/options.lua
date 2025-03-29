@@ -92,9 +92,6 @@ vim.g.maplocalleader = ' '
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
 
--- Disable some providers
-vim.g.loaded_ruby_provider = 0
-vim.g.loaded_perl_provider = 0
 vim.diagnostic.config {
   signs = true,
   underline = false,
