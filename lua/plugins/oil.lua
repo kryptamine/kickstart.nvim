@@ -10,6 +10,7 @@ return {
         columns = { 'icon' },
         keymaps = {
           ['<Esc><Esc>'] = 'actions.close',
+          ['q'] = 'actions.close',
           ['<C-v>'] = 'actions.select_vsplit',
           ['<C-s>'] = false,
         },
