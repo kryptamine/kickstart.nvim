@@ -66,7 +66,7 @@ return {
       update_debounce = 200,
       max_file_length = 40000,
       preview_config = {
-        border = 'rounded',
+        border = 'single',
         style = 'minimal',
         relative = 'cursor',
         row = 0,

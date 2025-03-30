@@ -103,7 +103,7 @@ vim.diagnostic.config {
   },
   underline = false,
   float = {
-    border = 'rounded',
+    border = 'single',
     focusable = true,
   },
 }

@@ -13,7 +13,7 @@ local function setup()
   vim.keymap.set('n', '[q', ':cprev<CR>', { desc = 'Previous quickfix' })
 
   require('bqf').setup {
-    border = 'rounded',
+    border = 'single',
     preview = {
       description = 'Make BQF opaque',
       winblend = 0,

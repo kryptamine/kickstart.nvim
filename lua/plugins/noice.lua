@@ -37,6 +37,18 @@ return {
         inc_rename = true,
         lsp_doc_border = true,
       },
+      views = {
+        hover = {
+          border = {
+            style = 'single',
+          },
+        },
+        popup = {
+          border = {
+            style = 'single',
+          },
+        },
+      },
     },
   },
 }
