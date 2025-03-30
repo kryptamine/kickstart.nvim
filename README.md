@@ -5,13 +5,10 @@ Inspired by https://github.com/adibhanna/nvim
 # Plugins
 
 - auto-session.lua
-- autocomplete.lua
-- dropbar.lua
+- blink.lua
+- bqf.lua
 - colorizer.lua
-- colorscheme.lua
 - comments.lua
-- copilot.lua
-- dashboard.lua
 - extra.lua
 - formatter.lua
 - git-signs.lua
@@ -19,7 +16,6 @@ Inspired by https://github.com/adibhanna/nvim
 - lazygit.lua
 - lsp.lua
 - lualine.lua
-- mini-indentscope.lua
 - mini.lua
 - noice.lua
 - notify.lua
