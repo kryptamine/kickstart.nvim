@@ -33,8 +33,10 @@ return {
               path = 1,
               padding = { left = 1, right = 1 },
               fmt = function(name)
-                local icon = '󰈙 '
-                return icon .. name
+                local devicons = require 'nvim-web-devicons'
+
+                local icon, _ = devicons.get_icon(name, nil, { default = true })
+                return icon .. '  ' .. name
               end,
             },
           },
