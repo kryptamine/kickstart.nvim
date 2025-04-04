@@ -26,7 +26,7 @@ keymap.set('n', 'L', '$')
 local opts = { noremap = true, silent = true }
 
 -- save opened buffers
-keymap.set({ 'i', 'x', 'n', 's' }, '<leader>w', '<cmd>wa<cr><esc>', { desc = 'Save open buffers' })
+keymap.set('n', '<leader>w', '<cmd>wa<cr><esc>', { desc = 'Save open buffers' })
 
 -- quit
 keymap.set('n', '<leader>q', '<cmd>q<CR>', { desc = 'Quit' })
