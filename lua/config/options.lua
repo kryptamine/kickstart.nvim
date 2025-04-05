@@ -82,8 +82,6 @@ end
 
 vim.opt.wildignore:append { '*/node_modules/*' }
 
--- Add asterisks in block comments,
-vim.opt.formatoptions:append { 'r' }
 vim.scriptencoding = 'utf-8'
 
 vim.g.mapleader = ' '

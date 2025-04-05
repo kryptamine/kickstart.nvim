@@ -28,6 +28,7 @@ return {
           },
           lualine_b = {
             'branch',
+            'diff',
             {
               'filename',
               path = 1,
@@ -41,12 +42,10 @@ return {
             },
           },
           lualine_c = {
-            { 'diagnostics', sources = { 'nvim_lsp' }, symbols = { error = ' ', warn = ' ', info = ' ' } },
+            { 'diagnostics', sources = { 'nvim_lsp' } },
             { 'searchcount' },
           },
-          lualine_x = {
-            'diff',
-          },
+          lualine_x = {},
           lualine_y = { 'progress' },
           lualine_z = {
             { 'location', separator = '' },
