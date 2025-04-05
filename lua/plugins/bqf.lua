@@ -9,14 +9,11 @@ local function setup()
   end
 
   vim.keymap.set('n', '<leader>x', toggleQf, { desc = 'Toggle quickfi[x]' })
-  vim.keymap.set('n', ']q', ':cnext<CR>', { desc = 'Next quickfix' })
-  vim.keymap.set('n', '[q', ':cprev<CR>', { desc = 'Previous quickfix' })
 
   require('bqf').setup {
-    border = 'single',
     preview = {
-      description = 'Make BQF opaque',
       winblend = 0,
+      border = 'single',
     },
   }
 end
