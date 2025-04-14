@@ -41,13 +41,13 @@ return {
             backdrop = 70,
           },
         },
+        formatters = {
+          file = {
+            truncate = 200,
+          },
+        },
         sources = {
           smart = {
-            formatters = {
-              file = {
-                truncate = 200,
-              },
-            },
             layout = {
               preview = false,
             },
